@@ -3,25 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pot Connecté</title>
+  <title>Gestion de l'état des plantes</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="app">
-    <h1>Pot Connecté</h1>
 
-    <div class="sensor" id="temperature">Température : <span>0</span> °C</div>
-    <div class="sensor" id="light">Lumière : <span>0</span> Lux</div>
-    <div class="sensor" id="brightness">Luminosité : <span>0</span> %</div>
-    <div class="sensor" id="waterLevel">Niveau d'eau : <span>100</span> %</div>
+  <h1>Gestion de l'état des plantes</h1>
 
-    <div id="notification" class="notification" style="display: none;">
-      Le niveau d'eau est bas !
-    </div>
+  <!-- Formulaire pour l'ajout de données avec /etatGlobal -->
+  <section id="etat-global">
+    <h2>Ajouter un état de plante</h2>
+    <form id="etatGlobalForm">
+      <label for="nom">Nom de la plante :</label>
+      <input type="text" id="nom" name="nom" required>
 
-    <!-- Bouton de caméra en commentaire pour l'intégration future -->
-    <!-- <button onclick="takePhoto()">Prendre une photo</button> -->
-  </div>
+      <label for="temperature">Température (°C) :</label>
+      <input type="number" id="temperature" name="temperature" required>
+
+      <label for="humidite">Humidité (%) :</label>
+      <input type="number" id="humidite" name="humidite" required>
+
+      <label for="luminosite">Luminosité :</label>
+      <input type="number" id="luminosite" name="luminosite" required>
+
+      <label for="reservoir">Niveau du réservoir :</label>
+      <input type="number" id="reservoir" name="reservoir" required>
+
+      <label for="date">Date :</label>
+      <input type="datetime-local" id="date" name="date" required>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <div id="etatGlobalResult"></div>
+  </section>
+
+  <!-- Section pour visualiser l'état le plus récent avec /last_recherche -->
+  <section id="last-recherche">
+    <h2>Consulter l'état le plus récent</h2>
+    <form id="lastRechercheForm">
+      <label for="nomRecherche">Nom de la plante :</label>
+      <input type="text" id="nomRecherche" name="nom" required>
+      <button type="submit">Rechercher</button>
+    </form>
+    <div id="lastRechercheResult"></div>
+  </section>
 
   <script src="script.js"></script>
 </body>
