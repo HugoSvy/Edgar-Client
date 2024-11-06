@@ -24,7 +24,7 @@ section {
     padding: 20px;
     border-radius: 8px;
     background-color: #fff;
-    max-width: 400px; /* Decreased the max-width value */
+    max-width: 420px; /* Decreased the max-width value */
     max-height: 525px; /* Decreased the max-height value */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -38,11 +38,11 @@ label {
 input[type="text"],
 input[type="number"],
 input[type="datetime-local"] {
-  width: 100%;
+  width: 95%;
   padding: 8px;
   margin-top: 5px;
-  margin-left: -10px;
   border-radius: 5px;
+  margin-left: 0.1%;
   border: 1px solid #ccc;
 }
 
