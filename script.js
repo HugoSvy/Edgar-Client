@@ -39,6 +39,8 @@ function remplirFormulaireAleatoire() {
   // Date et heure actuelles
   const maintenant = new Date();
   document.getElementById('date').value = maintenant.toISOString().slice(0, 16); // ISO 8601 format sans secondes
+
+  document.getElementById('nomRecherche').value = "test";
 }
 
 // Appelez la fonction lorsque la page est chargée
