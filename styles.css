@@ -24,8 +24,7 @@ section {
     padding: 20px;
     border-radius: 8px;
     background-color: #fff;
-    max-width: 420px; /* Decreased the max-width value */
-    max-height: 525px; /* Decreased the max-height value */
+    max-width: 420px; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
