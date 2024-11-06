@@ -11,9 +11,14 @@ document.getElementById('etatGlobalForm').addEventListener('submit', async funct
   console.log("Données envoyées à /etatGlobal : ", { nom, temperature, humidite, luminosite, reservoir, date });
 
   try {
-    const response = await fetch(`http://localhost:8000/etatGlobal?nom=${nom}&temperature=${temperature}&humidite=${humidite}&luminosite=${luminosite}&reservoir=${reservoir}&date=${date}`, {
+    //const response = await fetch(`http://localhost:8000/etatGlobal?nom=${nom}&temperature=${temperature}&humidite=${humidite}&luminosite=${luminosite}&reservoir=${reservoir}&date=${date}`, {
+    const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/etatGlobal?nom=${nom}&temperature=${temperature}&humidite=${humidite}&luminosite=${luminosite}&reservoir=${reservoir}&date=${date}`, {
+      headers: {
+        "ngrok-skip-browser-warning": "1"
+      },
       method: 'GET'
     });
+    
     const result = await response.text();
     console.log("Réponse de /etatGlobal : ", result);
     document.getElementById('etatGlobalResult').textContent = `Résultat : ${result}`;
@@ -30,7 +35,9 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
   console.log("Données envoyées à /last_recherche : ", { nom });
 
   try {
-    const response = await fetch(`http://localhost:8000/last_recherche?nom=${nom}`);
+    //const response = await fetch(`http://localhost:8000/last_recherche?nom=${nom}`);
+    const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/last_recherche?nom=${nom}`);
+    
     if (!response.ok) {
       throw new Error('Aucun document trouvé');
     }
