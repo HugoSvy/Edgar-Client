@@ -8,15 +8,23 @@ body {
 h1 {
   text-align: center;
   color: #333;
+  
+}
+
+h2 {
+  margin-top: 5px;
+  color: #333;
+  margin-bottom: 30px;
+  margin-left: 5px;
 }
 
 section {
   margin: 20px auto;
   padding: 20px;
-  border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #fff;
   max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 label {
@@ -30,7 +38,8 @@ input[type="datetime-local"] {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
-  border-radius: 4px;
+  margin-left: -10px;
+  border-radius: 5px;
   border: 1px solid #ccc;
 }
 
