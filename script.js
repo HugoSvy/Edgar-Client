@@ -36,8 +36,12 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
 
   try {
     //const response = await fetch(`http://localhost:8000/last_recherche?nom=${nom}`);
-    const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/last_recherche?nom=${nom}`);
-    
+    const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/last_recherche?nom=${nom}`, {
+      headers: {
+        "ngrok-skip-browser-warning": "1"
+      },
+    });
+
     if (!response.ok) {
       throw new Error('Aucun document trouvé');
     }
