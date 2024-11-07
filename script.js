@@ -31,7 +31,7 @@ document.getElementById('etatGlobalForm').addEventListener('submit', async funct
 function remplirFormulaireAleatoire() {
   document.getElementById('nom').value = "test";
 
-  document.getElementById('temperature').value = (Math.random() * 15 + 15).toFixed(1); // Température entre 15 et 30°C
+  document.getElementById('temperature').value = (Math.random() * 15 + 15).toFixed(0); // Température entre 15 et 30°C
   document.getElementById('humidite').value = (Math.random() * 50 + 25).toFixed(0); // Humidité entre 25% et 75%
   document.getElementById('luminosite').value = (Math.random() * 1000).toFixed(0); // Luminosité entre 0 et 1000
   document.getElementById('reservoir').value = (Math.random() * 100).toFixed(0); // Niveau du réservoir entre 0 et 100
