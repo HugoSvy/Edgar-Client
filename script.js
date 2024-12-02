@@ -71,33 +71,4 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
   }
 });
 
-async function demanderEtEnvoyerNotification() {
-  if (!("Notification" in window)) {
-    alert("Les notifications ne sont pas supportées par ce navigateur.");
-    return;
-  }
 
-  console.log("Demande de permission de notification");
-  const permission = await Notification.requestPermission();
-  console.log("Permission obtenue : ", permission);
-  
-  if (permission !== "granted") {
-    alert("Permission de notification refusée.");
-    return;
-  }
-
-  console.log("Envoi de la notification");
-  const notification = new Notification("Notification de Test", {
-    body: "Ceci est un test de notification pour l'état des plantes.",
-    //icon: "URL_de_icone.png" // Optionnel
-  });
-
-  notification.onclick = function (event) {
-    event.preventDefault();
-    window.open("https://github.com/HugoSvy/Edgar-Client", "_blank");
-  };
-}
-
-
-// Ajouter un événement au bouton pour déclencher la notification
-document.getElementById('notificationButton').addEventListener('click', demanderEtEnvoyerNotification);
