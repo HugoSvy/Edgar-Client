@@ -11,7 +11,6 @@ document.getElementById('etatGlobalForm').addEventListener('submit', async funct
   console.log("Données envoyées à /etatGlobal : ", { nom, temperature, humidite, luminosite, reservoir, date });
 
   try {
-    //const response = await fetch(`http://localhost:8000/etatGlobal?nom=${nom}&temperature=${temperature}&humidite=${humidite}&luminosite=${luminosite}&reservoir=${reservoir}&date=${date}`, {
     const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/etatGlobal?nom=${nom}&temperature=${temperature}&humidite=${humidite}&luminosite=${luminosite}&reservoir=${reservoir}&date=${date}`, {
       headers: {
         "ngrok-skip-browser-warning": "1"
@@ -41,9 +40,7 @@ function remplirFormulaireAleatoire() {
   document.getElementById('date').value = maintenant.toISOString().slice(0, 16); // ISO 8601 format sans secondes
 }
 
-// Appelez la fonction lorsque la page est chargée
 document.addEventListener("DOMContentLoaded", remplirFormulaireAleatoire);
-
 
 document.getElementById('lastRechercheForm').addEventListener('submit', async function (e) {
   e.preventDefault();
@@ -52,7 +49,6 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
   console.log("Données envoyées à /last_recherche : ", { nom });
 
   try {
-    //const response = await fetch(`http://localhost:8000/last_recherche?nom=${nom}`);
     const response = await fetch(`https://tolerant-namely-swift.ngrok-free.app/last_recherche?nom=${nom}`, {
       headers: {
         "ngrok-skip-browser-warning": "1"
@@ -71,4 +67,40 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
   }
 });
 
+// Vérifier si Service Workers et Notifications sont pris en charge
+if ('serviceWorker' in navigator && 'Notification' in window) {
+  navigator.serviceWorker.register('sw.js').then(registration => {
+      console.log("Service Worker enregistré avec succès :", registration);
 
+      const notifyBtn = document.getElementById('notificationButton');
+      notifyBtn.addEventListener('click', () => {
+          // Demander la permission si nécessaire
+          if (Notification.permission === "granted") {
+              showNotification(registration);
+          } else if (Notification.permission !== "denied") {
+              Notification.requestPermission().then(permission => {
+                  if (permission === "granted") {
+                      showNotification(registration);
+                  } else {
+                      alert("Permission de notification refusée.");
+                  }
+              });
+          } else {
+              alert("Les notifications sont désactivées.");
+          }
+      });
+
+      // Fonction pour afficher une notification
+      function showNotification(registration) {
+          registration.showNotification("Notif", {
+              body: "Ceci est une notification via Service Worker.",
+              icon: "https://via.placeholder.com/128", // URL de l'icône
+              tag: "demo-notification" // Évite les notifications multiples identiques
+          });
+      }
+  }).catch(error => {
+      console.error("Erreur lors de l'enregistrement du Service Worker :", error);
+  });
+} else {
+  alert("Votre navigateur ne supporte pas les notifications ou les Service Workers.");
+}
