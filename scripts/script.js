@@ -69,7 +69,7 @@ document.getElementById('lastRechercheForm').addEventListener('submit', async fu
 
 // Vérifier si Service Workers et Notifications sont pris en charge
 if ('serviceWorker' in navigator && 'Notification' in window) {
-  navigator.serviceWorker.register('/scripts/sw.js').then(registration => {
+  navigator.serviceWorker.register('./scripts/sw.js').then(registration => {
       console.log("Service Worker enregistré avec succès :", registration);
 
       const notifyBtn = document.getElementById('notificationButton');

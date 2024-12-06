@@ -23,7 +23,7 @@ self.addEventListener('notificationclick', event => {
                 let client = clientList[0];
                 return client.focus();
             } else {
-                return clients.openWindow('/');
+                return clients.openWindow('./');
             }
         })
     );
