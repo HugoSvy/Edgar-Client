@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="icon" type="image/svg+xml" href="/img/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico">
     <meta name="generator" content="Astro v4.16.16">
     <title>Edgar - Le pot de fleur connecté intelligent</title>
     <meta name="description"
@@ -18,7 +18,7 @@
     <!-- AOS Animation -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <script src="https://unpkg.com/aos@next/dist/aos.js" defer></script>
-    <script src="https://github.com/HugoSvy/Edgar-Client/blob/9c48e19991a8774b0aebb4cd1effc5d73715c7fe/styles/styles_vitrine.css"></script>
+    <script src="/scripts/script_vitrine.js"></script>
     <link rel="stylesheet" href="/styles/styles_vitrine.css">
     <style data-vite-dev-id="C:/Users/usrlocal/Desktop/project/node_modules/@fontsource/poppins/index.css">
         /* poppins-latin-ext-400-normal */
@@ -85,386 +85,192 @@
     </style>
 </head>
 
-<body class="font-poppins" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-    data-astro-source-loc="42:30">
+<body class="font-poppins" data-astro-source-loc="42:30">
 
-    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm"
-        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-        data-astro-source-loc="43:78">
-        <nav class="container mx-auto px-4 py-4 flex justify-between items-center"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-            data-astro-source-loc="44:82"> <a href="/" class="text-2xl font-bold text-edgar-green"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                data-astro-source-loc="45:65">Edgar</a>
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm" data-astro-source-loc="43:78">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center" data-astro-source-loc="44:82"> <a
+                href="/" class="text-2xl font-bold text-edgar-green" data-astro-source-loc="45:65">Edgar</a>
             <div class="space-x-6" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
                 data-astro-source-loc="46:32"> <a href="/debug.html" class="hover:text-edgar-green transition-colors"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
                     data-astro-source-loc="47:80">Debugger</a> <a href="/index.html#features"
-                    class="hover:text-edgar-green transition-colors"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="47:80">Fonctionnalités</a> <a href="/index.html#app"
-                    class="hover:text-edgar-green transition-colors"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+                    class="hover:text-edgar-green transition-colors" data-astro-source-loc="47:80">Fonctionnalités</a>
+                <a href="/index.html#app" class="hover:text-edgar-green transition-colors"
                     data-astro-source-loc="48:75">Application</a> <a href="/index.html#faq"
-                    class="hover:text-edgar-green transition-colors"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="49:75">FAQ</a> </div>
+                    class="hover:text-edgar-green transition-colors" data-astro-source-loc="49:75">FAQ</a> </div>
         </nav>
     </header>
 
-    <section class="pt-32 pb-20 bg-edgar-gray"
-        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="7:46">
-        <div class="container mx-auto px-4"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="8:41">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="9:72">
-                <div data-aos="fade-right"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="10:36">
-                    <h1 class="text-5xl font-bold mb-6"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="11:47">
-                        <b>Prenez soin de vos plantes </b><span class="text-edgar-green"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="12:71"><b>intelligemment</b></span>
+    <section class="pt-32 pb-20 bg-edgar-gray" data-astro-source-loc="7:46">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-5xl font-bold mb-6">
+                        <b>Prenez soin de vos plantes </b><span class="text-edgar-green"><b>intelligemment</b></span>
                     </h1>
-                    <p class="text-xl text-gray-600 mb-8"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="14:49">
+                    <p class="text-xl text-gray-600 mb-8">
                         Edgar est votre assistant jardinier connecté qui surveille vos plantes 24/7 <br>
                         et vous aide à les faire prospérer.
                     </p>
-                    <form class="flex gap-4 max-w-md"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="17:45"> <input type="email" placeholder="Votre email"
-                            class="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-edgar-green"
-                            required data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="18:14"> <button type="submit"
-                            class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="27:14">
+                    <form class="flex gap-4 max-w-md"> <input type="email" placeholder="Votre email"
+                            class="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-edgar-green">
+                        <button type="submit"
+                            class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors">
                             Je m'inscris
                         </button> </form>
                 </div>
-                <div data-aos="fade-left"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="32:35"> <img src="/img/pot.png" alt="Edgar - Pot de fleur connecté"
-                        class="w-1/4 max-w-xs mx-auto h-16 object-contain"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="33:12"> </div>
+                <div data-aos="fade-left"> <img src="/img/pot.png" alt="Edgar - Pot de fleur connecté"
+                        class="w-1/4 max-w-xs mx-auto h-16 object-contain"> </div>
             </div>
         </div>
     </section>
-    <section class="py-20" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-        data-astro-source-loc="44:26">
-        <div class="container mx-auto px-4 text-center max-w-3xl"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="45:63">
-            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="46:62"><b>Notre Mission</b></h2>
-            <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="47:80">
+    <section class="py-20">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up"><b>Notre Mission</b></h2>
+            <p class="text-xl text-gray-600" data-aos="fade-up" data-aos-delay="100">
                 Nous croyons que chacun devrait pouvoir profiter de la beauté des<br>
                 plantes sans stress. Edgar combine technologie et nature pour vous offrir <br>
                 une expérience de jardinage unique.
             </p>
         </div>
     </section>
-    <section id="features" class="py-20 bg-edgar-gray"
-        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="55:54">
-        <div class="container mx-auto px-4"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="56:41">
-            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="57:75"><b>Fonctionnalités</b></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="58:58">
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="59:96">
-                    <div class="text-edgar-green mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="60:46"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="61:90">
+    <section id="features" class="py-20 bg-edgar-gray">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"><b>Fonctionnalités</b></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-edgar-green mb-4"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="62:16"></path>
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg> </div>
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="65:46"><b>Capteurs Intelligents</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="66:36">Surveillance en temps réel de l'humidité, la luminosité et la
+                    <h3 class="text-xl font-bold mb-2"><b>Capteurs Intelligents</b></h3>
+                    <p class="text-gray-600">Surveillance en temps réel de l'humidité, la luminosité et la
                         température.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="68:96">
-                    <div class="text-edgar-green mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="69:46"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="70:90">
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-edgar-green mb-4"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="71:16"></path>
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                            </path>
                         </svg> </div>
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="74:46"><b>Notifications</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="75:36">Recevez des alertes personnalisées sur votre smartphone.</p>
+                    <h3 class="text-xl font-bold mb-2"><b>Notifications</b></h3>
+                    <p class="text-gray-600">Recevez des alertes personnalisées sur votre smartphone.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="77:96">
-                    <div class="text-edgar-green mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="78:46"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="79:90">
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-edgar-green mb-4"> <svg class="w-12 h-12" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="80:16"></path>
+                                d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                            </path>
                         </svg> </div>
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="83:46"><b>Conseils Personnalisés</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="84:36">Recevez des recommandations adaptées à vos plantes.</p>
+                    <h3 class="text-xl font-bold mb-2"><b>Conseils Personnalisés</b></h3>
+                    <p class="text-gray-600">Recevez des recommandations adaptées à vos plantes.</p>
                 </div>
             </div>
         </div>
     </section>
-    <section id="app" class="py-20" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-        data-astro-source-loc="91:35">
-        <div class="container mx-auto px-4"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="92:41">
-            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="93:75"><b>L'Application Edgar</b></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="94:72">
-                <div data-aos="fade-right"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="95:36"> <img src="/img/logo.png" alt="Application Edgar"
-                        class="w-full max-w-md mx-auto"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="96:12"> </div>
-                <div data-aos="fade-left"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="102:35">
-                    <div class="space-y-6"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="103:34">
-                        <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="104:18">
-                            <h3 class="text-xl font-bold mb-2"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="105:50"><b>Interface Intuitive</b></h3>
-                            <p class="text-gray-600"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="106:40">Suivez la santé de vos plantes en un coup d'œil.</p>
+    <section id="app" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"><b>L'Application Edgar</b></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right"> <img src="/img/logo.png" alt="Application Edgar"
+                        class="w-full max-w-md mx-auto"> </div>
+                <div data-aos="fade-left">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold mb-2"><b>Interface Intuitive</b></h3>
+                            <p class="text-gray-600">Suivez la santé de vos plantes en un coup d'œil.</p>
                         </div>
-                        <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="108:18">
-                            <h3 class="text-xl font-bold mb-2"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="109:50"><b>Historique Détaillé</b></h3>
-                            <p class="text-gray-600"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="110:40">Visualisez l'évolution de vos plantes au fil du temps.
+                        <div>
+                            <h3 class="text-xl font-bold mb-2"><b>Historique Détaillé</b></h3>
+                            <p class="text-gray-600">Visualisez l'évolution de vos plantes au fil du temps.
                             </p>
                         </div>
-                        <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                            data-astro-source-loc="112:18">
-                            <h3 class="text-xl font-bold mb-2"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="113:50"><b>Communauté Active</b></h3>
-                            <p class="text-gray-600"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                                data-astro-source-loc="114:40">Partagez vos expériences avec d'autres passionnés.</p>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2"><b>Communauté Active</b></h3>
+                            <p class="text-gray-600">Partagez vos expériences avec d'autres passionnés.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="py-20 bg-edgar-green text-white"
-        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="123:52">
-        <div class="container mx-auto px-4 text-center"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="124:53">
-            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="125:62"><b>Bientôt Disponible</b></h2>
-            <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="100"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="126:71">
+    <section class="py-20 bg-edgar-green text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6" data-aos="fade-up"><b>Bientôt Disponible</b></h2>
+            <p class="text-xl mb-8" data-aos="fade-up" data-aos-delay="100">
                 Soyez parmi les premiers à découvrir Edgar. Inscrivez-vous pour être informé du lancement.
             </p>
-            <div class="max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="129:77">
-                <form class="flex gap-4"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="130:34"> <input type="email" placeholder="Votre email"
-                        class="flex-1 px-4 py-3 rounded-lg text-gray-900" required
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="131:12"> <button type="submit"
-                        class="bg-edgar-orange text-white px-6 py-3 rounded-lg hover:bg-edgar-orange/90 transition-colors"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="140:12">
+            <div class="max-w-md mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <form class="flex gap-4"> <input type="email" placeholder="Votre email"
+                        class="flex-1 px-4 py-3 rounded-lg text-gray-900" required> <button type="submit"
+                        class="bg-edgar-orange text-white px-6 py-3 rounded-lg hover:bg-edgar-orange/90 transition-colors">
                         Je m'inscris
                     </button> </form>
             </div>
         </div>
     </section>
-    <section id="faq" class="py-20" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-        data-astro-source-loc="149:35">
-        <div class="container mx-auto px-4"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-            data-astro-source-loc="150:41">
-            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                data-astro-source-loc="151:75"><b>Questions Fréquentes</b></h2>
+    <section id="faq" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"><b>Questions Fréquentes</b></h2>
             <div class="max-w-3xl mx-auto space-y-6"
                 data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
                 data-astro-source-loc="152:48">
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="153:96">
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="154:46"><b>Comment fonctionne Edgar ?</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="155:36">Edgar utilise des capteurs avancés pour mesurer l'humidité du
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-bold mb-2"><b>Comment fonctionne Edgar ?</b></h3>
+                    <p class="text-gray-600">Edgar utilise des capteurs avancés pour mesurer l'humidité du
                         sol, la luminosité et la température. Ces données sont transmises à votre smartphone via
                         l'application.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="157:96">
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="158:46"><b>Quelle est l'autonomie de la batterie ?</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="159:36">La batterie d'Edgar dure jusqu'à 6 mois avec une seule charge,
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-bold mb-2"><b>Quelle est l'autonomie de la batterie ?</b></h3>
+                    <p class="text-gray-600">La batterie d'Edgar dure jusqu'à 6 mois avec une seule charge,
                         grâce à sa technologie basse consommation.</p>
                 </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300"
-                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                    data-astro-source-loc="161:96">
-                    <h3 class="text-xl font-bold mb-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="162:46"><b>Est-ce que je peux utiliser Edgar en extérieur ?</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
-                        data-astro-source-loc="163:36">Edgar est conçu principalement pour une utilisation en intérieur,
+                <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold mb-2"><b>Est-ce que je peux utiliser Edgar en extérieur ?</b></h3>
+                    <p class="text-gray-600">Edgar est conçu principalement pour une utilisation en intérieur,
                         mais il peut être utilisé en extérieur sous un abri.</p>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="bg-edgar-gray py-8 mt-20"
-        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-        data-astro-source-loc="56:46">
-        <div class="container mx-auto px-4"
-            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-            data-astro-source-loc="57:43">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                data-astro-source-loc="58:60">
-                <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="59:16">
-                    <h3 class="font-bold text-xl mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="60:48"><b>Edgar</b></h3>
-                    <p class="text-gray-600"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="61:38">Le futur du jardinage connecté</p>
+    <footer class="bg-edgar-gray py-8 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="font-bold text-xl mb-4"><b>Edgar</b></h3>
+                    <p class="text-gray-600">Le futur du jardinage connecté</p>
                 </div>
-                <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="63:16">
-                    <h3 class="font-bold text-xl mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="64:48"><b>Liens</b></h3>
-                    <ul class="space-y-2"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="65:35">
-                        <li data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                            data-astro-source-loc="66:20"><a href="#" class="text-gray-600 hover:text-edgar-green"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="66:76">Mentions légales</a></li>
-                        <li data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                            data-astro-source-loc="67:20"><a href="#" class="text-gray-600 hover:text-edgar-green"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="67:76">Politique de confidentialité</a></li>
-                        <li data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                            data-astro-source-loc="68:20"><a href="#" class="text-gray-600 hover:text-edgar-green"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="68:76">CGV</a></li>
+                <div>
+                    <h3 class="font-bold text-xl mb-4"><b>Liens</b></h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-edgar-green">Mentions légales</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-edgar-green">Politique de confidentialité</a>
+                        </li>
+                        <li><a href="#" class="text-gray-600 hover:text-edgar-green">CGV</a></li>
                     </ul>
                 </div>
-                <div data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="71:16">
-                    <h3 class="font-bold text-xl mb-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="72:48"><b>Suivez-nous</b></h3>
-                    <div class="flex space-x-4"
-                        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                        data-astro-source-loc="73:41"> <a href="#" class="text-gray-600 hover:text-edgar-green"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                            data-astro-source-loc="74:72"> <span class="sr-only"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="75:39">Facebook</span> <svg class="h-6 w-6" fill="currentColor"
-                                viewBox="0 0 24 24"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="76:79">
+                <div>
+                    <h3 class="font-bold text-xl mb-4"><b>Suivez-nous</b></h3>
+                    <div class="flex space-x-4"> <a href="#" class="text-gray-600 hover:text-edgar-green"> <span
+                                class="sr-only">Facebook</span> <svg class="h-6 w-6" fill="currentColor"
+                                viewBox="0 0 24 24">
                                 <path
-                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                    data-astro-source-loc="76:79"></path>
-                            </svg> </a> <a href="#" class="text-gray-600 hover:text-edgar-green"
-                            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                            data-astro-source-loc="78:72"> <span class="sr-only"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="79:39">Instagram</span> <svg class="h-6 w-6" fill="currentColor"
-                                viewBox="0 0 24 24"
-                                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                data-astro-source-loc="80:79">
+                                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z">
+                                </path>
+                            </svg> </a> <a href="#" class="text-gray-600 hover:text-edgar-green"> <span
+                                class="sr-only">Instagram</span> <svg class="h-6 w-6" fill="currentColor"
+                                viewBox="0 0 24 24">
                                 <path
-                                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
-                                    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                                    data-astro-source-loc="80:79"></path>
+                                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z">
+                                </path>
                             </svg> </a> </div>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600"
-                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                data-astro-source-loc="85:83">
-                <p data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
-                    data-astro-source-loc="86:14">&copy; 2024 Edgar. Tous droits réservés.</p>
+            <div class="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600">
+                <p>&copy; 2024 Edgar. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
