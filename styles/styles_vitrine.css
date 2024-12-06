@@ -175,7 +175,47 @@ body {
     /* 1 */
     line-height: inherit;
     /* 2 */
+    font-family: 'Poppins', sans-serif;
 }
+
+
+
+label {
+    display: block;
+    margin-top: 10px;
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="datetime-local"] {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    margin-left: 0.1%;
+    border: 1px solid #ccc;
+  }
+
+  button2 {
+    margin-top: 25px;
+    padding: 10px;
+    width: 100%;
+    background-color: rgba(141, 198, 63, 1);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button2:hover {
+    background-color: rgba(141, 198, 63, 1);
+  }
+  
+  #etatGlobalResult, #lastRechercheResult {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 0.9em;
+  }
 
 /*
   1. Add the correct height in Firefox.

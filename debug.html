@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestion de l'état des plantes</title>
+  <!-- PWA -->
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.ico">
+  <meta name="apple-mobile-web-app-status-bar" content="crimson">
+  <meta name="theme-color" content="white">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/styles_vitrine.css">
+</head>
+
+<body>
+  <header class="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm"
+    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro" data-astro-source-loc="43:78">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center"
+      data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro" data-astro-source-loc="44:82">
+      <a href="/" class="text-2xl font-bold text-edgar-green"
+        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+        data-astro-source-loc="45:65">Edgar</a>
+      <div class="space-x-6" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+        data-astro-source-loc="46:32"> <a href="/debug.html" class="hover:text-edgar-green transition-colors"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+          data-astro-source-loc="47:80">Debugger</a> <a href="/index.html#features"
+          class="hover:text-edgar-green transition-colors"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+          data-astro-source-loc="47:80">Fonctionnalités</a> <a href="/index.html#app"
+          class="hover:text-edgar-green transition-colors"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+          data-astro-source-loc="48:75">Application</a> <a href="/index.html#faq"
+          class="hover:text-edgar-green transition-colors"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/layouts/Layout.astro"
+          data-astro-source-loc="49:75">FAQ</a> </div>
+    </nav>
+  </header>
+  <br>
+
+  <!-- Section pour container -->
+  <section id="features" class="py-20 bg-edgar-gray"
+    data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="55:54">
+    <div class="container mx-auto px-4" data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+      data-astro-source-loc="56:41">
+      <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"
+        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="57:75">
+        <b>Debugger</b>
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8"
+        data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro" data-astro-source-loc="58:58">
+        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="100"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+          data-astro-source-loc="59:96">
+          <div class="text-edgar-green mb-4"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="78:46"></div>
+          <!--  -->
+          <h3 class="text-xl font-bold mb-2"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="65:46"><b>Ajouter un etat de plante </b></h3>
+          <form id="etatGlobalForm">
+            <label for="nom">Nom de la plante :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="temperature">Température (°C) :</label>
+            <input type="number" id="temperature" name="temperature" required>
+
+            <label for="humidite">Humidité (%) :</label>
+            <input type="number" id="humidite" name="humidite" required>
+
+            <label for="luminosite">Luminosité :</label>
+            <input type="number" id="luminosite" name="luminosite" required>
+
+            <label for="reservoir">Niveau du réservoir :</label>
+            <input type="number" id="reservoir" name="reservoir" required>
+
+            <label for="date">Date :</label>
+            <input type="datetime-local" id="date" name="date" required>
+
+            <p class="text-xl text-gray-600 mb-8"
+              data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+              data-astro-source-loc="14:49">
+            </p>
+
+            <form class="flex gap-4 max-w-md"
+              data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+              data-astro-source-loc="17:45"> <button type="submit"
+                class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors"
+                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+                data-astro-source-loc="27:14">
+                Envoyer
+              </button>
+              <div id="etatGlobalResult"></div>
+            </form>
+          </form>
+
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+          data-astro-source-loc="68:96">
+          <div class="text-edgar-green mb-4"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="69:46"> <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+              data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+              data-astro-source-loc="70:90">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"
+                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+                data-astro-source-loc="71:16"></path>
+            </svg> </div>
+          <!--  -->
+          <h3 class="text-xl font-bold mb-2"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="74:46"><b>Tester une Notification</b></h3>
+          <form class="flex gap-4 max-w-md"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="17:45"> <button id="notificationButton"
+              class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors"
+              data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+              data-astro-source-loc="27:14">
+              Envoyer une Notification
+            </button>
+          </form>
+          <br>
+          <br>
+          <h3 class="text-xl font-bold mb-2"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="74:46"><b>Consulter l'état le plus récent</b></h3>
+          <form id="lastRechercheForm">
+            <label for="nomRecherche">Nom de la plante :</label>
+            <input type="text" id="nomRecherche" name="nom" required>
+
+            <form class="flex gap-4 max-w-md"
+              data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+              data-astro-source-loc="17:45"> <button type="submit"
+                class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors"
+                data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+                data-astro-source-loc="27:14">
+                Rechercher
+              </button> </form>
+          </form>
+          <div id="lastRechercheResult"></div>
+
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="300"
+          data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+          data-astro-source-loc="77:96">
+          <div class="text-edgar-green mb-4"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="78:46"></div>
+          <!--  -->
+          <h3 class="text-xl font-bold mb-2"
+            data-astro-source-file="C:/Users/usrlocal/Desktop/project/src/pages/index.astro"
+            data-astro-source-loc="83:46"><b>Console</b></h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="/scripts/script.js"></script>
+  <script src="/scripts/app.js"></script>
+</body>
+
+</html>
