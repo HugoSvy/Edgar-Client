@@ -3,7 +3,7 @@
   "short_name": "Edgar",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#16421a",
+  "background_color": "green",
   "theme_color": "white",
   "orientation": "portrait-primary",
   "description": "plant monitoring app",
