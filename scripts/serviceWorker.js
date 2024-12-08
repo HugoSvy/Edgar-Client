@@ -1,5 +1,5 @@
 const staticCacheName = "cache-v1";
-const assets = ["/", "/index.html"];
+const assets = ["./", "./index.html"];
 
 // ajout de fichiers en cache
 self.addEventListener("install", (e) => {
