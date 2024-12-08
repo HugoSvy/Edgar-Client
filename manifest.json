@@ -1,7 +1,7 @@
 {
   "name": "Edgar Pot",
   "short_name": "Edgar",
-  "start_url": "/index.html",
+  "start_url": "./index.html",
   "display": "standalone",
   "background_color": "green",
   "theme_color": "white",
@@ -9,13 +9,13 @@
   "description": "plant monitoring app",
   "icons": [
     {
-      "src": "/img/logoappli192.png",
+      "src": "./img/logoappli192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any maskable"
     },
     {
-      "src": "/img/logoappli512.png",
+      "src": "./img/logoappli512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
