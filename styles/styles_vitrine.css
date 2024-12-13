@@ -52,6 +52,7 @@
     --tw-contain-layout: ;
     --tw-contain-paint: ;
     --tw-contain-style: ;
+    overflow-x: hidden;
 }
 
 ::backdrop {
