@@ -116,6 +116,10 @@
   2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
   */
 
+.no-scroll {
+    overflow-y: hidden;
+}
+
 *,
 ::before,
 ::after {
@@ -600,6 +604,7 @@ video {
 
 .container {
     width: 100%;
+    overflow-y: hidden;
 }
 
 @media (min-width: 640px) {
