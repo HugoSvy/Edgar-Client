@@ -732,7 +732,6 @@ video {
 .text-edgar-green {
     --tw-text-opacity: 1;
     color: rgb(141 198 63 / var(--tw-text-opacity, 1));
-    margin-bottom: 10px;
 }
 
 .text-gray-600 {
