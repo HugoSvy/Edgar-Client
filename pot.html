@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Données du Capteur</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Données du Capteur</h1>
+    <table id="sensorData">
+        <thead>
+            <tr>
+                <th>Clé</th>
+                <th>Valeur</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les données seront insérées ici -->
+        </tbody>
+    </table>
+
+    <script>
+        async function fetchSensorData() {
+            const url = 'https://tolerant-namely-swift.ngrok-free.app/last_recherche2?device=7A2F6F';
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        "ngrok-skip-browser-warning": "1"
+                    }
+                });
+                if (!response.ok) {
+                    throw new Error(`Erreur HTTP : ${response.status}`);
+                }
+                const data = await response.json();
+                displayData(data);
+            } catch (error) {
+                console.error(`Problème lors de la récupération des données : ${error.message}`);
+            }
+        }
+
+        function displayData(data) {
+            const tbody = document.getElementById('sensorData').querySelector('tbody');
+            tbody.innerHTML = '';
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    const row = document.createElement('tr');
+                    const keyCell = document.createElement('td');
+                    const valueCell = document.createElement('td');
+                    keyCell.textContent = key;
+                    valueCell.textContent = data[key];
+                    row.appendChild(keyCell);
+                    row.appendChild(valueCell);
+                    tbody.appendChild(row);
+                }
+            }
+        }
+
+        // Appel de la fonction pour récupérer et afficher les données
+        fetchSensorData();
+    </script>
+</body>
+</html>
