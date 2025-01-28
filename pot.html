@@ -1,297 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Monstera Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./styles/styles_vitrine.css" />
-    <style>
-      .body {
-        font-family: "Poppins", sans-serif;
-        background-color: #f9f9f9;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        padding: 10px;
-      }
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Monstera Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles_vitrine.css" />
+  <style>
+    .body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 700px;
+      max-width: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      background-color: #eaeaea;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-container h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #245e09;
+    }
+
+    .icon-hover {
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .icon-hover:hover {
+      transform: scale(1.2);
+      color: #207736;
+    }
+
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .details h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #245e09;
+    }
+
+    .details p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      width: 90%;
+      height: 100px;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .metric p {
+      height: 30px;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    .metric svg {
+      display: inline;
+      margin-bottom: 0;
+      margin-right: 7px;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #245e09;
+    }
+
+    .status {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status .optimal {
+      background-color: #c6ffd3;
+      padding: 5px 10px;
+      border-radius: 30px;
+      color: #207736;
+      font-size: 12px;
+    }
+
+    .status .date {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
       .card {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 20px;
-        background-color: white;
-        border-radius: 16px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        width: 700px;
-        max-width: 100%;
-      }
-
-      .card img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px;
-        background-color: #eaeaea;
-      }
-
-      .details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-
-      .details h2 {
-        margin: 0;
-        font-size: 1.5em;
-        color: #245e09;
-      }
-
-      .details p {
-        margin: 5px 0;
-        color: #666;
+        grid-template-columns: 1fr;
       }
 
       .metrics {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin-top: 20px;
+        grid-template-columns: 1fr 1fr;
       }
+    }
+  </style>
+</head>
 
-      .metric {
-        width: 90%;
-        height: 100px;
-        background-color: #f4f4f4;
-        padding: 10px;
-        border-radius: 8px;
-        text-align: center;
-      }
-
-      .metric p {
-        height: 30px;
-        margin-top: 10px;
-        color: #666;
-      }
-
-      .metric svg {
-        display: inline;
-        margin-bottom: 0;
-        margin-right: 7px;
-      }
-
-      .metric span {
-        display: block;
-        font-size: 1.2em;
-        font-weight: bold;
-        color: #245e09;
-      }
-
-      .status {
-        margin-top: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .status .optimal {
-        background-color: #c6ffd3;
-        padding: 5px 10px;
-        border-radius: 30px;
-        color: #207736;
-        font-size: 12px;
-      }
-
-      .status .date {
-        color: #666;
-        font-size: 0.9em;
-      }
-
-      /* Responsive styles */
-      @media (max-width: 768px) {
-        .card {
-          grid-template-columns: 1fr;
-        }
-
-        .metrics {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
-      <div class="space-x-6">
-        <a href="./pot.html" class="hover:text-edgar-green transition-colors"
-          >Pot</a
-        >
-        <a href="./debug.html" class="hover:text-edgar-green transition-colors"
-          >Debugger</a
-        >
-        <a
-          href="./index.html#features"
-          class="hover:text-edgar-green transition-colors"
-          >Fonctionnalités</a
-        >
-        <a
-          href="./index.html#app"
-          class="hover:text-edgar-green transition-colors"
-          >Application</a
-        >
-        <a
-          href="./index.html#faq"
-          class="hover:text-edgar-green transition-colors"
-          >FAQ</a
-        >
+<body>
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
+    <div class="space-x-6">
+      <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pot</a>
+      <a href="./debug.html" class="hover:text-edgar-green transition-colors">Debugger</a>
+      <a href="./index.html#features" class="hover:text-edgar-green transition-colors">Fonctionnalités</a>
+      <a href="./index.html#app" class="hover:text-edgar-green transition-colors">Application</a>
+      <a href="./index.html#faq" class="hover:text-edgar-green transition-colors">FAQ</a>
+    </div>
+  </nav>
+  <div class="body">
+    <div class="card">
+      <div class="image">
+        <img src="image.png" alt="Monstera Deliciosa" />
       </div>
-    </nav>
-    <div class="body">
-      <div class="card">
-        <div class="image">
-          <img src="image.png" alt="Monstera Deliciosa" />
+      <div class="details">
+        <div class="title-container">
+          <h2>Monstera Deliciosa</h2>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-settings h-5 w-5 icon-hover">
+            <path
+              d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
+            </path>
+            <circle cx="12" cy="12" r="3"></circle>
+          </svg>
         </div>
-        <div class="details">
-          <h2><b>Monstera Deliciosa</b></h2>
-          <p>Monstera Deliciosa</p>
-          <div class="metrics">
-            <div class="metric">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-droplets w-6 h-6 text-edgar-600 mb-2"
-                >
-                  <path
-                    d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z"
-                  ></path>
-                  <path
-                    d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"
-                  ></path>
-                </svg>
-                Humidité
-              </p>
-              <span id="humidity">--%</span>
-            </div>
-            <div class="metric">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-thermometer w-6 h-6 text-edgar-600 mb-2"
-                >
-                  <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
-                </svg>
-                Température
-              </p>
-              <span id="temperature">--°C</span>
-            </div>
-            <div class="metric">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide-sun w-6 h-6 text-edgar-600 mb-2"
-                >
-                  <circle cx="12" cy="12" r="4"></circle>
-                  <path d="M12 2v2"></path>
-                  <path d="M12 20v2"></path>
-                  <path d="m4.93 4.93 1.41 1.41"></path>
-                  <path d="m17.66 17.66 1.41 1.41"></path>
-                  <path d="M2 12h2"></path>
-                  <path d="M20 12h2"></path>
-                  <path d="m6.34 17.66-1.41 1.41"></path>
-                  <path d="m19.07 4.93-1.41 1.41"></path>
-                </svg>
 
-                Luminosité
-              </p>
-              <span id="luminosity">--</span>
-            </div>
-            <div class="metric">
-              <p>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide-battery w-6 h-6 text-edgar-600 mb-2"
-                >
-                  <rect width="16" height="10" x="2" y="7" rx="2" ry="2"></rect>
-                  <line x1="22" x2="22" y1="11" y2="13"></line>
-                </svg>
-                Niveau d'eau
-              </p>
-              <span id="level">--</span>
-            </div>
+        <p>Monstera Deliciosa</p>
+        <div class="metrics">
+          <div class="metric">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-droplets w-6 h-6 text-edgar-600 mb-2">
+                <path
+                  d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z">
+                </path>
+                <path
+                  d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97">
+                </path>
+              </svg>
+              Humidité
+            </p>
+            <span id="humidity">--%</span>
+          </div>
+          <div class="metric">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-thermometer w-6 h-6 text-edgar-600 mb-2">
+                <path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"></path>
+              </svg>
+              Température
+            </p>
+            <span id="temperature">--°C</span>
+          </div>
+          <div class="metric">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide-sun w-6 h-6 text-edgar-600 mb-2">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2"></path>
+                <path d="M12 20v2"></path>
+                <path d="m4.93 4.93 1.41 1.41"></path>
+                <path d="m17.66 17.66 1.41 1.41"></path>
+                <path d="M2 12h2"></path>
+                <path d="M20 12h2"></path>
+                <path d="m6.34 17.66-1.41 1.41"></path>
+                <path d="m19.07 4.93-1.41 1.41"></path>
+              </svg>
+
+              Luminosité
+            </p>
+            <span id="luminosity">--</span>
+          </div>
+          <div class="metric">
+            <p>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide-battery w-6 h-6 text-edgar-600 mb-2">
+                <rect width="16" height="10" x="2" y="7" rx="2" ry="2"></rect>
+                <line x1="22" x2="22" y1="11" y2="13"></line>
+              </svg>
+              Niveau d'eau
+            </p>
+            <span id="level">--</span>
           </div>
         </div>
       </div>
     </div>
-    <script>
-      const url =
-        "https://tolerant-namely-swift.ngrok-free.app/last_recherche2?device=7A2F6F";
+  </div>
 
-      async function fetchData() {
-        try {
-          const response = await fetch(url, {
-            headers: {
-              "ngrok-skip-browser-warning": "1",
-            },
-          });
-          const data = await response.json();
+  
+  <script>
+    const url =
+      "https://tolerant-namely-swift.ngrok-free.app/last_recherche2?device=7A2F6F";
 
-          // Mise à jour des valeurs dans le tableau de bord
-          document.getElementById(
-            "humidity"
-          ).textContent = `${data.Humidite} %`;
-          document.getElementById(
-            "temperature"
-          ).textContent = `${data.Temp} °C`;
-          document.getElementById(
-            "luminosity"
-          ).textContent = `${data.Luminosite} lux`;
-          document.getElementById("level").textContent = `${
-            data.Reservoir * 30
+    async function fetchData() {
+      try {
+        const response = await fetch(url, {
+          headers: {
+            "ngrok-skip-browser-warning": "1",
+          },
+        });
+        const data = await response.json();
+
+        // Mise à jour des valeurs dans le tableau de bord
+        document.getElementById(
+          "humidity"
+        ).textContent = `${data.Humidite} %`;
+        document.getElementById(
+          "temperature"
+        ).textContent = `${data.Temp} °C`;
+        document.getElementById(
+          "luminosity"
+        ).textContent = `${data.Luminosite} lux`;
+        document.getElementById("level").textContent = `${data.Reservoir * 30
           } %`;
-        } catch (error) {
-          console.error("Erreur lors de la récupération des données :", error);
-        }
+      } catch (error) {
+        console.error("Erreur lors de la récupération des données :", error);
       }
+    }
 
-      // Charger les données au démarrage
-      fetchData();
-    </script>
-  </body>
+    // Charger les données au démarrage
+    fetchData();
+  </script>
+</body>
+
 </html>
