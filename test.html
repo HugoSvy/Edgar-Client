@@ -1,221 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Monstera Dashboard</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PWA Install</title>
   <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .card {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 20px;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 700px;
-      max-width: 100%;
-    }
-
-    .icon-hover {
-      cursor: pointer;
-      transition: transform 0.3s, color 0.3s;
-    }
-
-    .icon-hover:hover {
-      transform: scale(1.2);
-      color: #207736;
-    }
-
-    .dialog-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+    #installButton {
       display: none;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .dialog-box {
-      background: white;
-      border-radius: 16px;
-      padding: 20px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .dialog-box h2 {
-      margin-top: 0;
-      color: #207736;
-    }
-
-    .dialog-box .section {
-      margin-bottom: 20px;
-    }
-
-    .progress-container {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .progress-bar {
-      flex: 1;
-      height: 10px;
-      background-color: #eaeaea;
-      border-radius: 5px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .progress-bar span {
-      display: block;
-      height: 100%;
-      background-color: #207736;
-    }
-
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      transition: 0.4s;
-      border-radius: 20px;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 14px;
-      width: 14px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      transition: 0.4s;
-      border-radius: 50%;
-    }
-
-    input:checked + .slider {
-      background-color: #207736;
-    }
-
-    input:checked + .slider:before {
-      transform: translateX(20px);
-    }
-
-    .dialog-close {
-      background: none;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
       border: none;
-      font-size: 1.5rem;
-      color: #666;
+      border-radius: 5px;
       cursor: pointer;
-      position: absolute;
-      top: 10px;
-      right: 10px;
+    }
+    #installButton:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="details">
-      <h2>Monstera Deliciosa</h2>
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
-        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-hover" id="settings-icon">
-        <path
-          d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z">
-        </path>
-        <circle cx="12" cy="12" r="3"></circle>
-      </svg>
-    </div>
-  </div>
-
-  <div class="dialog-overlay" id="dialog">
-    <div class="dialog-box">
-      <button class="dialog-close" id="dialog-close">&times;</button>
-      <h2>Paramètres de la plante</h2>
-      <div class="section">
-        <label>Mode automatique</label>
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider"></span>
-        </label>
-      </div>
-      <div class="section">
-        <label>Température (min - max)</label>
-        <div class="progress-container">
-          <div class="progress-bar"><span style="width: 40%;"></span></div>
-          <div class="progress-bar"><span style="width: 70%;"></span></div>
-        </div>
-      </div>
-      <div class="section">
-        <label>Humidité (min - max)</label>
-        <div class="progress-container">
-          <div class="progress-bar"><span style="width: 30%;"></span></div>
-          <div class="progress-bar"><span style="width: 80%;"></span></div>
-        </div>
-      </div>
-      <div class="section">
-        <label>Luminosité (min - max)</label>
-        <div class="progress-container">
-          <div class="progress-bar"><span style="width: 50%;"></span></div>
-          <div class="progress-bar"><span style="width: 90%;"></span></div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <h1>Installer notre application</h1>
+  <button id="installButton">Installer l'application</button>
 
   <script>
-    const settingsIcon = document.getElementById('settings-icon');
-    const dialog = document.getElementById('dialog');
-    const dialogClose = document.getElementById('dialog-close');
+    let deferredPrompt; // Stockage de l'événement "beforeinstallprompt"
 
-    settingsIcon.addEventListener('click', () => {
-      dialog.style.display = 'flex';
+    const installButton = document.getElementById('installButton');
+
+    // Écoute de l'événement "beforeinstallprompt"
+    window.addEventListener('beforeinstallprompt', (event) => {
+      event.preventDefault(); // Empêche l'affichage automatique du prompt
+      deferredPrompt = event; // Stocke l'événement pour une utilisation future
+      installButton.style.display = 'block'; // Affiche le bouton d'installation
     });
 
-    dialogClose.addEventListener('click', () => {
-      dialog.style.display = 'none';
-    });
-
-    window.addEventListener('click', (event) => {
-      if (event.target === dialog) {
-        dialog.style.display = 'none';
+    // Gestion du clic sur le bouton
+    installButton.addEventListener('click', async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt(); // Affiche le prompt d'installation
+        const { outcome } = await deferredPrompt.userChoice; // Vérifie l'action utilisateur
+        if (outcome === 'accepted') {
+          console.log('L\'utilisateur a accepté l\'installation.');
+        } else {
+          console.log('L\'utilisateur a refusé l\'installation.');
+        }
+        deferredPrompt = null; // Réinitialise l'événement après utilisation
+        installButton.style.display = 'none'; // Cache le bouton
       }
     });
+
+    // Optionnel : Détecte si l'application est en mode standalone
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      console.log('L\'application est déjà installée.');
+    }
   </script>
 </body>
-
 </html>

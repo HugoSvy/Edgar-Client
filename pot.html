@@ -33,7 +33,6 @@
 
     .card img {
       width: 100%;
-      height: auto;
       border-radius: 8px;
       background-color: #eaeaea;
     }
@@ -134,6 +133,40 @@
       font-size: 0.9em;
     }
 
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      display: none;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .mobile-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #666;
+      font-size: 12px;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: #207736;
+    }
+
+    .mobile-nav svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+
+
     /* Responsive styles */
     @media (max-width: 768px) {
       .card {
@@ -142,6 +175,19 @@
 
       .metrics {
         grid-template-columns: 1fr 1fr;
+      }
+
+      .container {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .container {
+        display: none;
+        /* Hide the top navbar */
       }
     }
   </style>
@@ -241,8 +287,41 @@
       </div>
     </div>
   </div>
+  <div class="mobile-nav">
+    <a href="./pot.html">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 2v20M2 12h20"></path>
+      </svg>
+      Pot
+    </a>
+    <a href="./debug.html">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8"></circle>
+      </svg>
+      Debug
+    </a>
+    <a href="./index.html#features">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <rect width="18" height="12" x="3" y="6"></rect>
+      </svg>
+      Features
+    </a>
+    <a href="./index.html#app">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M4 4h16v16H4z"></path>
+      </svg>
+      App
+    </a>
+    <a href="./index.html#faq">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 6v4"></path>
+      </svg>
+      FAQ
+    </a>
+  </div>
 
-  
+
+
   <script>
     const url =
       "https://tolerant-namely-swift.ngrok-free.app/last_recherche2?device=7A2F6F";
