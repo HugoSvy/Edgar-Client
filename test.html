@@ -1,59 +1,192 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PWA Install</title>
+  <title>Configuration</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    #installButton {
-      display: none;
-      padding: 10px 20px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
     }
-    #installButton:hover {
-      background-color: #0056b3;
+
+    .card {
+      margin-left: 40px;
+      margin-right: 40px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 400px;
+      max-width: 90%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    h2 {
+      text-align: left;
+    }
+
+    .switch-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 10px;
+      margin-bottom: 15px;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 20px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 20px;
+      transition: .4s;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      border-radius: 50%;
+      transition: .4s;
+    }
+
+    input:checked+.slider {
+      background-color: #245e09;
+    }
+
+    input:checked+.slider:before {
+      transform: translateX(20px);
+    }
+
+    .slider-container {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type=range] {
+      width: 100%;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border: none;
+      background-color: #245e09;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    button:hover {
+      background-color: #207736;
     }
   </style>
 </head>
+
 <body>
-  <h1>Installer notre application</h1>
-  <button id="installButton">Installer l'application</button>
-
+  <div class="card">
+    <h1>Configuration</h1>
+    <h2>Paramètres</h2>
+    <div class="switch-container">
+      <label class="switch">
+        <input type="checkbox" id="recommendedSwitch" onclick="toggleRecommendedValues()">
+        <span class="slider"></span>
+      </label>
+      <span>Valeurs recommandées</span>
+    </div>
+    <div class="slider-container">
+      <label>Température Min: <span id="tempMinValue">15</span>°C</label>
+      <input type="range" id="tempMin" min="10" max="30" value="15" oninput="updateValue('tempMin')">
+    </div>
+    <div class="slider-container">
+      <label>Température Max: <span id="tempMaxValue">25</span>°C</label>
+      <input type="range" id="tempMax" min="10" max="30" value="25" oninput="updateValue('tempMax')">
+    </div>
+    <div class="slider-container">
+      <label>Durée éclairage: <span id="lightDurationValue">8</span>h</label>
+      <input type="range" id="lightDuration" min="1" max="24" value="8" oninput="updateValue('lightDuration')">
+    </div>
+    <div class="slider-container">
+      <label>Fréquence arrosage: <span id="wateringFreqValue">3</span> jours</label>
+      <input type="range" id="wateringFreq" min="1" max="7" value="3" oninput="updateValue('wateringFreq')">
+    </div>
+    <div class="slider-container">
+      <label>Temps d'arrosage: <span id="wateringTimeValue">5</span> min</label>
+      <input type="range" id="wateringTime" min="1" max="30" value="5" oninput="updateValue('wateringTime')">
+    </div>
+    <button onclick="saveSettings()">Sauvegarder</button>
+  </div>
   <script>
-    let deferredPrompt; // Stockage de l'événement "beforeinstallprompt"
+    const recommendedValues = {
+      tempMin: 18,
+      tempMax: 24,
+      lightDuration: 10,
+      wateringFreq: 2,
+      wateringTime: 7
+    };
 
-    const installButton = document.getElementById('installButton');
+    function updateValue(id) {
+      document.getElementById(id + 'Value').innerText = document.getElementById(id).value;
+    }
 
-    // Écoute de l'événement "beforeinstallprompt"
-    window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault(); // Empêche l'affichage automatique du prompt
-      deferredPrompt = event; // Stocke l'événement pour une utilisation future
-      installButton.style.display = 'block'; // Affiche le bouton d'installation
-    });
-
-    // Gestion du clic sur le bouton
-    installButton.addEventListener('click', async () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt(); // Affiche le prompt d'installation
-        const { outcome } = await deferredPrompt.userChoice; // Vérifie l'action utilisateur
-        if (outcome === 'accepted') {
-          console.log('L\'utilisateur a accepté l\'installation.');
+    function toggleRecommendedValues() {
+      const isChecked = document.getElementById("recommendedSwitch").checked;
+      for (let key in recommendedValues) {
+        let slider = document.getElementById(key);
+        if (isChecked) {
+          slider.value = recommendedValues[key];
+          slider.disabled = true;
+          document.getElementById(key + 'Value').innerText = recommendedValues[key];
         } else {
-          console.log('L\'utilisateur a refusé l\'installation.');
+          slider.disabled = false;
         }
-        deferredPrompt = null; // Réinitialise l'événement après utilisation
-        installButton.style.display = 'none'; // Cache le bouton
       }
-    });
+    }
 
-    // Optionnel : Détecte si l'application est en mode standalone
-    if (window.matchMedia('(display-mode: standalone)').matches) {
-      console.log('L\'application est déjà installée.');
+    function saveSettings() {
+      alert("Paramètres sauvegardés !");
     }
   </script>
 </body>
+
 </html>

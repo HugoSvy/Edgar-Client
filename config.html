@@ -16,19 +16,112 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            padding: 10px;
+            flex-direction: column;
         }
 
         .card {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 20px;
+            margin-left: 40px;
+            margin-right: 40px;
             background-color: white;
             border-radius: 16px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            width: 700px;
-            max-width: 100%;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: left;
+        }
+
+        .switch-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-bottom: 15px;
+            
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 40px;
+            height: 20px;
+            overflow: hidden;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 20px;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 14px;
+            width: 14px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: .4s;
+        }
+
+        input:checked+.slider {
+            background-color: #245e09;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(20px);
+        }
+
+        .slider-container {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type=range] {
+            width: 100%;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            background-color: #245e09;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            align-self: flex-start;
+        }
+
+        button:hover {
+            background-color: #207736;
         }
 
         .card img {
@@ -228,9 +321,15 @@
             <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
         </div>
     </nav>
-
-    <body>
+    <div class="body">
         <div class="card">
+            <div class="switch-container">
+                <label class="switch">
+                    <input type="checkbox" id="recommendedSwitch" onclick="toggleRecommendedValues()">
+                    <span class="slider"></span>
+                </label>
+                <span>Valeurs recommandées</span>
+            </div>
             <div class="slider-container">
                 <label>Température Min: <span id="tempMinValue">15</span>°C</label>
                 <input type="range" id="tempMin" min="10" max="30" value="15" oninput="updateValue('tempMin')">
@@ -252,76 +351,76 @@
                 <label>Temps d'arrosage: <span id="wateringTimeValue">5</span> min</label>
                 <input type="range" id="wateringTime" min="1" max="30" value="5" oninput="updateValue('wateringTime')">
             </div>
-            <button onclick="setRecommendedValues()">Valeurs recommandées</button>
             <button onclick="saveSettings()">Sauvegarder</button>
         </div>
-        <script>
-            function updateValue(id) {
-                document.getElementById(id + 'Value').innerText = document.getElementById(id).value;
+    </div>
+    <div class="mobile-nav">
+        <a href="./pot.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-house">
+                <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+                <path
+                    d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            </svg>
+            Pots
+        </a>
+        <a href="./config.html" class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-settings-2">
+                <path d="M20 7h-9" />
+                <path d="M14 17H5" />
+                <circle cx="17" cy="17" r="3" />
+                <circle cx="7" cy="7" r="3" />
+            </svg>
+            Config
+        </a>
+        <a href="./docs.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-book-open">
+                <path d="M12 7v14" />
+                <path
+                    d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+            </svg>
+            Docs
+        </a>
+        <a href="./scan.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                class="lucide lucide-scan-search">
+                <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+                <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+                <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+                <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+                <circle cx="12" cy="12" r="3" />
+                <path d="m16 16-1.9-1.9" />
+            </svg>
+            Scan
+        </a>
+    </div>
+    <script>
+        function updateValue(id) {
+            document.getElementById(id + 'Value').innerText = document.getElementById(id).value;
+        }
+        function setRecommendedValues() {
+            const recommended = {
+                tempMin: 18,
+                tempMax: 24,
+                lightDuration: 10,
+                wateringFreq: 2,
+                wateringTime: 7
+            };
+            for (let key in recommended) {
+                document.getElementById(key).value = recommended[key];
+                document.getElementById(key + 'Value').innerText = recommended[key];
             }
-            function setRecommendedValues() {
-                const recommended = {
-                    tempMin: 18,
-                    tempMax: 24,
-                    lightDuration: 10,
-                    wateringFreq: 2,
-                    wateringTime: 7
-                };
-                for (let key in recommended) {
-                    document.getElementById(key).value = recommended[key];
-                    document.getElementById(key + 'Value').innerText = recommended[key];
-                }
-            }
-            function saveSettings() {
-                alert("Paramètres sauvegardés !");
-            }
-        </script>
-        <div class="mobile-nav">
-            <a href="./pot.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-house">
-                    <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-                    <path
-                        d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                </svg>
-                Pots
-            </a>
-            <a href="./config.html" class="active">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-settings-2">
-                    <path d="M20 7h-9" />
-                    <path d="M14 17H5" />
-                    <circle cx="17" cy="17" r="3" />
-                    <circle cx="7" cy="7" r="3" />
-                </svg>
-                Config
-            </a>
-            <a href="./docs.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-book-open">
-                    <path d="M12 7v14" />
-                    <path
-                        d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
-                </svg>
-                Docs
-            </a>
-            <a href="./scan.html">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="lucide lucide-scan-search">
-                    <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-                    <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-                    <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-                    <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-                    <circle cx="12" cy="12" r="3" />
-                    <path d="m16 16-1.9-1.9" />
-                </svg>
-                Scan
-            </a>
-        </div>
-    </body>
+        }
+        function saveSettings() {
+            alert("Paramètres sauvegardés !");
+        }
+    </script>
+</body>
 
 </html>
