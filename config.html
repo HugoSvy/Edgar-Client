@@ -44,7 +44,7 @@
             justify-content: flex-start;
             gap: 10px;
             margin-bottom: 15px;
-            
+
         }
 
         .switch {
@@ -401,22 +401,32 @@
         </a>
     </div>
     <script>
+        const recommendedValues = {
+            tempMin: 18,
+            tempMax: 24,
+            lightDuration: 10,
+            wateringFreq: 2,
+            wateringTime: 7
+        };
+
         function updateValue(id) {
             document.getElementById(id + 'Value').innerText = document.getElementById(id).value;
         }
-        function setRecommendedValues() {
-            const recommended = {
-                tempMin: 18,
-                tempMax: 24,
-                lightDuration: 10,
-                wateringFreq: 2,
-                wateringTime: 7
-            };
-            for (let key in recommended) {
-                document.getElementById(key).value = recommended[key];
-                document.getElementById(key + 'Value').innerText = recommended[key];
+
+        function toggleRecommendedValues() {
+            const isChecked = document.getElementById("recommendedSwitch").checked;
+            for (let key in recommendedValues) {
+                let slider = document.getElementById(key);
+                if (isChecked) {
+                    slider.value = recommendedValues[key];
+                    slider.disabled = true;
+                    document.getElementById(key + 'Value').innerText = recommendedValues[key];
+                } else {
+                    slider.disabled = false;
+                }
             }
         }
+
         function saveSettings() {
             alert("Paramètres sauvegardés !");
         }
