@@ -169,8 +169,20 @@
 
     /* Responsive styles */
     @media (max-width: 768px) {
+
+      .body {
+        height: auto;
+        padding-top: 20px;
+        min-height: 100vh;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+      }
+
       .card {
         grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
       }
 
       .metrics {
@@ -188,6 +200,10 @@
       .container {
         display: none;
         /* Hide the top navbar */
+      }
+
+      .metric svg {
+        display: none;
       }
     }
   </style>
@@ -279,7 +295,7 @@
                 <rect width="16" height="10" x="2" y="7" rx="2" ry="2"></rect>
                 <line x1="22" x2="22" y1="11" y2="13"></line>
               </svg>
-              Niveau d'eau
+              Réservoir
             </p>
             <span id="level">--</span>
           </div>
