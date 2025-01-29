@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles/styles_vitrine.css" />
+    <style>
+        .body {
+          font-family: "Poppins", sans-serif;
+          background-color: #f9f9f9;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+          padding: 10px;
+        }
+    
+        .card {
+          display: grid;
+          grid-template-columns: 1fr 2fr;
+          gap: 20px;
+          background-color: white;
+          border-radius: 16px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          width: 700px;
+          max-width: 100%;
+        }
+    
+        .card img {
+          width: 100%;
+          border-radius: 8px;
+          background-color: #eaeaea;
+        }
+    
+        .title-container {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+    
+        .title-container h2 {
+          margin: 0;
+          font-size: 1.5em;
+          color: #245e09;
+        }
+    
+        .icon-hover {
+          cursor: pointer;
+          transition: transform 0.3s, color 0.3s;
+        }
+    
+        .icon-hover:hover {
+          transform: scale(1.2);
+          color: #207736;
+        }
+    
+    
+        .details {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+    
+        .details h2 {
+          margin: 0;
+          font-size: 1.5em;
+          color: #245e09;
+        }
+    
+        .details p {
+          margin: 5px 0;
+          color: #666;
+        }
+    
+        .metrics {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 10px;
+          margin-top: 20px;
+        }
+    
+        .metric {
+          width: 90%;
+          height: 100px;
+          background-color: #f4f4f4;
+          padding: 10px;
+          border-radius: 8px;
+          text-align: center;
+        }
+    
+        .metric p {
+          height: 30px;
+          margin-top: 10px;
+          color: #666;
+        }
+    
+        .metric svg {
+          display: inline;
+          margin-bottom: 0;
+          margin-right: 7px;
+        }
+    
+        .metric span {
+          display: block;
+          font-size: 1.2em;
+          font-weight: bold;
+          color: #245e09;
+        }
+    
+        .status {
+          margin-top: 10px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+    
+        .status .optimal {
+          background-color: #c6ffd3;
+          padding: 5px 10px;
+          border-radius: 30px;
+          color: #207736;
+          font-size: 12px;
+        }
+    
+        .status .date {
+          color: #666;
+          font-size: 0.9em;
+        }
+    
+        .mobile-nav {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: white;
+          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+          display: none;
+          justify-content: space-around;
+          padding: 10px 0;
+          z-index: 1000;
+        }
+    
+        .mobile-nav a {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+          color: #9c9c9c;
+          font-size: 12px;
+          transition: color 0.3s;
+        }
+    
+        .mobile-nav a:hover {
+          color: #207736;
+        }
+    
+        .mobile-nav svg {
+          width: 24px;
+          height: 24px;
+          margin-bottom: 4px;
+        }
+    
+        .mobile-nav a.active {
+          color: #207736;
+          font-weight: bold;
+        }
+    
+        .mobile-nav a.active svg {
+          stroke: #207736;
+        }
+    
+    
+    
+        /* Responsive styles */
+        @media (max-width: 768px) {
+    
+          .body {
+            height: auto;
+            padding-top: 20px;
+            min-height: 100vh;
+            padding-bottom: 80px;
+            justify-content: flex-start;
+          }
+    
+          .card {
+            grid-template-columns: 1fr;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+          }
+    
+          .metrics {
+            grid-template-columns: 1fr 1fr;
+          }
+    
+          .container {
+            display: none;
+          }
+    
+          .mobile-nav {
+            display: flex;
+          }
+    
+          .container {
+            display: none;
+          }
+    
+          .metric svg {
+            display: none;
+          }
+        }
+      </style>
+</head>
+<body>
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
+        <div class="space-x-6">
+          <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pots</a>
+          <a href="./config.html" class="hover:text-edgar-green transition-colors">Configurations</a>
+          <a href="./docs.html" class="hover:text-edgar-green transition-colors">Documents</a>
+          <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
+        </div>
+      </nav>
+    <div class="mobile-nav">
+        <a href="./pot.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-house">
+            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+            <path
+              d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+          </svg>
+          Pots
+        </a>
+        <a href="./config.html" class="active">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-settings-2">
+            <path d="M20 7h-9" />
+            <path d="M14 17H5" />
+            <circle cx="17" cy="17" r="3" />
+            <circle cx="7" cy="7" r="3" />
+          </svg>
+          Config
+        </a>
+        <a href="./docs.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-book-open">
+            <path d="M12 7v14" />
+            <path
+              d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+          </svg>
+          Docs
+        </a>
+        <a href="./scan.html">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="lucide lucide-scan-search">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+            <circle cx="12" cy="12" r="3" />
+            <path d="m16 16-1.9-1.9" />
+          </svg>
+          Scan
+        </a>
+      </div> 
+</body>
+</html>
