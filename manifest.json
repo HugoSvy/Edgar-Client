@@ -9,7 +9,7 @@
   "description": "plant monitoring app",
   "icons": [
     {
-      "src": "./img/logoappli192.png",
+      "src": "./img/logoappli192_2.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
@@ -21,7 +21,7 @@
       "purpose": "maskable"
     },
     {
-      "src": "./img/logoappli512.png",
+      "src": "./img/logoappli512_2.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any"
