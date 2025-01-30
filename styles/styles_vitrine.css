@@ -109,7 +109,7 @@
 }
 
 .no-scroll {
-    overflow-y: hidden;
+    overflow-y: hidden !important;
 }
 
 .install-button {
