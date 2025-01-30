@@ -1,336 +1,419 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edgar - Le pot de fleur connecté intelligent</title>
-    <link rel="icon" type="image/svg+xml" href="./img/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="./styles/styles_vitrine.css" />
-    <style>
-        .body {
-          font-family: "Poppins", sans-serif;
-          background-color: #f9f9f9;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          margin: 0;
-          padding: 10px;
-        }
-    
-        .card {
-          display: grid;
-          grid-template-columns: 1fr 2fr;
-          gap: 20px;
-          background-color: white;
-          border-radius: 16px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-          padding: 20px;
-          width: 700px;
-          max-width: 100%;
-        }
-    
-        .card img {
-          width: 100%;
-          border-radius: 8px;
-          background-color: #eaeaea;
-        }
-    
-        .title-container {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 10px;
-        }
-    
-        .title-container h2 {
-          margin: 0;
-          font-size: 1.5em;
-          color: #245e09;
-        }
-    
-        .icon-hover {
-          cursor: pointer;
-          transition: transform 0.3s, color 0.3s;
-        }
-    
-        .icon-hover:hover {
-          transform: scale(1.2);
-          color: #207736;
-        }
-    
-    
-        .details {
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-        }
-    
-        .details h2 {
-          margin: 0;
-          font-size: 1.5em;
-          color: #245e09;
-        }
-    
-        .details p {
-          margin: 5px 0;
-          color: #666;
-        }
-    
-        .metrics {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 10px;
-          margin-top: 20px;
-        }
-    
-        .metric {
-          width: 90%;
-          height: 100px;
-          background-color: #f4f4f4;
-          padding: 10px;
-          border-radius: 8px;
-          text-align: center;
-        }
-    
-        .metric p {
-          height: 30px;
-          margin-top: 10px;
-          color: #666;
-        }
-    
-        .metric svg {
-          display: inline;
-          margin-bottom: 0;
-          margin-right: 7px;
-        }
-    
-        .metric span {
-          display: block;
-          font-size: 1.2em;
-          font-weight: bold;
-          color: #245e09;
-        }
-    
-        .status {
-          margin-top: 10px;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-    
-        .status .optimal {
-          background-color: #c6ffd3;
-          padding: 5px 10px;
-          border-radius: 30px;
-          color: #207736;
-          font-size: 12px;
-        }
-    
-        .status .date {
-          color: #666;
-          font-size: 0.9em;
-        }
-    
-        .mobile-nav {
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          background-color: white;
-          box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-          display: none;
-          justify-content: space-around;
-          padding: 10px 0;
-          z-index: 1000;
-        }
-    
-        .mobile-nav a {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          text-decoration: none;
-          color: #9c9c9c;
-          font-size: 12px;
-          transition: color 0.3s;
-        }
-    
-        .mobile-nav a:hover {
-          color: #207736;
-        }
-    
-        .mobile-nav svg {
-          width: 24px;
-          height: 24px;
-          margin-bottom: 4px;
-        }
-    
-        .mobile-nav a.active {
-          color: #207736;
-          font-weight: bold;
-        }
-    
-        .mobile-nav a.active svg {
-          stroke: #207736;
-        }
-    
-    
-    
-        /* Responsive styles */
-        @media (max-width: 768px) {
-    
-          .body {
-            height: auto;
-            padding-top: 20px;
-            min-height: 100vh;
-            padding-bottom: 80px;
-            justify-content: flex-start;
-          }
-    
-          .card {
-            grid-template-columns: 1fr;
-            display: flex;
-            flex-direction: column;
-            margin: auto;
-          }
-    
-          .metrics {
-            grid-template-columns: 1fr 1fr;
-          }
-    
-          .container {
-            display: none;
-          }
-    
-          .mobile-nav {
-            display: flex;
-          }
-    
-          .container {
-            display: none;
-          }
-    
-          .metric svg {
-            display: none;
-          }
-        }
-      </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edgar - Le pot de fleur connecté intelligent</title>
+  <link rel="icon" type="image/svg+xml" href="./img/favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles/styles_vitrine.css" />
+  <style>
+    .body {
+      font-family: "Poppins", sans-serif;
+      background-color: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      padding: 10px;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 20px;
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      width: 700px;
+      max-width: 100%;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      background-color: #eaeaea;
+    }
+
+    .title-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .title-container h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #245e09;
+    }
+
+    .icon-hover {
+      cursor: pointer;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .icon-hover:hover {
+      transform: scale(1.2);
+      color: #207736;
+    }
+
+
+    .details {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .details h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #245e09;
+    }
+
+    .details p {
+      margin: 5px 0;
+      color: #666;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      width: 90%;
+      height: 100px;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .metric p {
+      height: 30px;
+      margin-top: 10px;
+      color: #666;
+    }
+
+    .metric svg {
+      display: inline;
+      margin-bottom: 0;
+      margin-right: 7px;
+    }
+
+    .metric span {
+      display: block;
+      font-size: 1.2em;
+      font-weight: bold;
+      color: #245e09;
+    }
+
+    .status {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .status .optimal {
+      background-color: #c6ffd3;
+      padding: 5px 10px;
+      border-radius: 30px;
+      color: #207736;
+      font-size: 12px;
+    }
+
+    .status .date {
+      color: #666;
+      font-size: 0.9em;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+      display: none;
+      justify-content: space-around;
+      padding: 10px 0;
+      z-index: 1000;
+    }
+
+    .mobile-nav a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #9c9c9c;
+      font-size: 12px;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav a:hover {
+      color: #207736;
+    }
+
+    .mobile-nav svg {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+
+    .mobile-nav a.active {
+      color: #207736;
+      font-weight: bold;
+    }
+
+    .mobile-nav a.active svg {
+      stroke: #207736;
+    }
+
+    button {
+      display: block;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      background-color: #245e09;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+
+    button:hover {
+      background-color: #207736;
+    }
+
+    .search-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-container input {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .search-container button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+      border: none;
+      background-color: #245e09;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .search-container button:hover {
+      background-color: #207736;
+    }
+
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+
+      .body {
+        height: auto;
+        padding-top: 20px;
+        min-height: 100vh;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .container {
+        display: none;
+      }
+
+      .mobile-nav {
+        display: flex;
+      }
+
+      .container {
+        display: none;
+      }
+
+      .metric svg {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
-        <div class="space-x-6">
-          <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pots</a>
-          <a href="./config.html" class="hover:text-edgar-green transition-colors">Configurations</a>
-          <a href="./docs.html" class="hover:text-edgar-green transition-colors">Documents</a>
-          <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
-        </div>
-      </nav>
-
-      <h1>Recherche de Plante</h1>
-      <input type="text" id="plantName" placeholder="Nom de la plante">
-      <button onclick="searchPlant()">Rechercher</button>
-      <div class="card"><div id="results"></div></div>
-
-    <div class="mobile-nav">
-        <a href="./pot.html">
+  <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
+    <div class="space-x-6">
+      <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pots</a>
+      <a href="./config.html" class="hover:text-edgar-green transition-colors">Configurations</a>
+      <a href="./docs.html" class="hover:text-edgar-green transition-colors">Documents</a>
+      <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
+    </div>
+  </nav>
+  <div class="card">
+    <div class="details">
+      <h2><b>Recherche de Plante</b></h2>
+      <div class="search-container">
+        <input type="text" id="plantName" placeholder="Nom de la plante">
+        <button onclick="searchPlant()">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-house">
-            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
-            <path
-              d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            class="lucide lucide-search">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
           </svg>
-          Pots
-        </a>
-        <a href="./config.html">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-settings-2">
-            <path d="M20 7h-9" />
-            <path d="M14 17H5" />
-            <circle cx="17" cy="17" r="3" />
-            <circle cx="7" cy="7" r="3" />
-          </svg>
-          Config
-        </a>
-        <a href="./docs.html" class="active">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-book-open">
-            <path d="M12 7v14" />
-            <path
-              d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
-          </svg>
-          Docs
-        </a>
-        <a href="./scan.html">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-            class="lucide lucide-scan-search">
-            <path d="M3 7V5a2 2 0 0 1 2-2h2" />
-            <path d="M17 3h2a2 2 0 0 1 2 2v2" />
-            <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
-            <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
-            <circle cx="12" cy="12" r="3" />
-            <path d="m16 16-1.9-1.9" />
-          </svg>
-          Scan
-        </a>
-      </div> 
-      <script>
-        async function searchPlant() {
-            const query = document.getElementById("plantName").value;
-            if (!query) {
-                alert("Veuillez entrer un nom de plante.");
-                return;
-            }
+        </button>
+      </div>
 
-            const apiKey = "Hs9lgQuBasPbRhPgBnGwCdn2OP9L1UMBUt0wQCfgVXwaq9URik";
-            const searchUrl = `https://plant.id/api/v3/kb/plants/name_search?q=${encodeURIComponent(query)}`;
-            const headers = {
-                "Api-Key": apiKey,
-                "Content-Type": "application/json"
-            };
+      <div id="results">
 
-            try {
-                const searchResponse = await fetch(searchUrl, { method: "GET", headers });
-                const searchData = await searchResponse.json();
-                
-                const resultsDiv = document.getElementById("results");
-                resultsDiv.innerHTML = ""; // Nettoyage des résultats précédents
-                
-                if (!searchData.entities || searchData.entities.length === 0) {
-                    resultsDiv.innerHTML = "<p>Aucune plante trouvée.</p>";
-                    return;
-                }
+        <img
+          src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/462/46200b659607cd7d6cf766db0a954391ac8d775d.jpg"
+          alt="" width="200">
+        <h2>Aloe vera</h2>
+        </br>
 
-                // Récupération des access-tokens
-                const plantDetailsPromises = searchData.entities.map(async entity => {
-                    const detailsUrl = `https://plant.id/api/v3/kb/plants/${entity.access_token}?details=image&language=en`;
-                    const detailsResponse = await fetch(detailsUrl, { method: "GET", headers });
-                    return detailsResponse.json();
-                });
+        <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/fa1/fa1c42c2aac6aebeff234f99302c71862af60a85.jpg" alt="" width="200">
+        <h2>Anthurium andraeanum</h2>
+        </br>
+        <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/6f8/6f861c217fbef21c77b170fe23a7c82cfedcaebd.jpg" alt="" width="200">
+        <h2>Alocasia</h2>
+        </br>
+        <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/322/322e5bf8a4efce6855876787251f0e3b81c83955.jpg" alt="" width="200">
+        <h2>Aglaonema commutatum</h2>
+        </br>
+        <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/431/4310476359bea0eca0db09820cf7b37be00aafbc.jpg" alt="" width="200">
+        <h2>Aglaonema modestum</h2>
+        </br>
+      </div>
+    </br>
+  </br>
+    </div>
+  </div>
 
-                const plantDetails = await Promise.all(plantDetailsPromises);
+  <div class="mobile-nav">
+    <a href="./pot.html">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-house">
+        <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" />
+        <path
+          d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+      </svg>
+      Pots
+    </a>
+    <a href="./config.html">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-settings-2">
+        <path d="M20 7h-9" />
+        <path d="M14 17H5" />
+        <circle cx="17" cy="17" r="3" />
+        <circle cx="7" cy="7" r="3" />
+      </svg>
+      Config
+    </a>
+    <a href="./docs.html" class="active">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-book-open">
+        <path d="M12 7v14" />
+        <path
+          d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+      </svg>
+      Docs
+    </a>
+    <a href="./scan.html">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        class="lucide lucide-scan-search">
+        <path d="M3 7V5a2 2 0 0 1 2-2h2" />
+        <path d="M17 3h2a2 2 0 0 1 2 2v2" />
+        <path d="M21 17v2a2 2 0 0 1-2 2h-2" />
+        <path d="M7 21H5a2 2 0 0 1-2-2v-2" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="m16 16-1.9-1.9" />
+      </svg>
+      Scan
+    </a>
+  </div>
+  <script>
+    async function searchPlant() {
+      const query = document.getElementById("plantName").value;
+      if (!query) {
+        alert("Veuillez entrer un nom de plante.");
+        return;
+      }
 
-                // Affichage des résultats
-                plantDetails.forEach(plant => {
-                    const plantDiv = document.createElement("div");
-                    plantDiv.innerHTML = `
+      const apiKey = "93VDvGo876GivfyKGifp2xu1eq768IQAmn1m5rw69zlAEGny2s";
+      const searchUrl = `https://plant.id/api/v3/kb/plants/name_search?q=${encodeURIComponent(query)}`;
+      const headers = {
+        "Api-Key": apiKey,
+        "Content-Type": "application/json"
+      };
+
+      try {
+        const searchResponse = await fetch(searchUrl, { method: "GET", headers });
+        const searchData = await searchResponse.json();
+
+        const resultsDiv = document.getElementById("results");
+        resultsDiv.innerHTML = ""; // Nettoyage des résultats précédents
+
+        if (!searchData.entities || searchData.entities.length === 0) {
+          resultsDiv.innerHTML = "<p>Aucune plante trouvée.</p>";
+          return;
+        }
+
+        // Récupération des access-tokens
+        const plantDetailsPromises = searchData.entities.map(async entity => {
+          const detailsUrl = `https://plant.id/api/v3/kb/plants/${entity.access_token}?details=image&language=en`;
+          const detailsResponse = await fetch(detailsUrl, { method: "GET", headers });
+          return detailsResponse.json();
+        });
+
+        const plantDetails = await Promise.all(plantDetailsPromises);
+
+        // Affichage des résultats
+        plantDetails.forEach(plant => {
+          const plantDiv = document.createElement("div");
+          plantDiv.innerHTML = `
                         <img src="${plant.image?.value || 'https://via.placeholder.com/150'}" alt="${plant.name}" width="200">
                         <h2>${plant.name}</h2>
                         </br>
                     `;
-                    resultsDiv.appendChild(plantDiv);
-                });
+          resultsDiv.appendChild(plantDiv);
+        });
 
-            } catch (error) {
-                console.error("Erreur:", error);
-                document.getElementById("results").innerHTML = "<p>Une erreur s'est produite.</p>";
-            }
-        }
-    </script>
+      } catch (error) {
+        console.error("Erreur:", error);
+        document.getElementById("results").innerHTML = "<p>Une erreur s'est produite.</p>";
+      }
+    }
+  </script>
 </body>
+
 </html>
