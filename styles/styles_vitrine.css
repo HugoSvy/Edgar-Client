@@ -879,4 +879,12 @@ video {
     section:first-of-type {
         padding-top: 50px !important; /* Ajoute un petit espace si nécessaire */
     }
+
+    .start-button svg{
+        display: none;
+    }
+
+    .download-button svg{
+        display: none;
+    }
 }
