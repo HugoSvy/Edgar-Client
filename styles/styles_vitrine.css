@@ -811,6 +811,10 @@ video {
     --tw-ring-color: rgb(52 179 64 / var(--tw-ring-opacity, 1));
 }
 
+.start-button {
+    margin-left: 10px;
+}
+
 
 .start-button:hover {
     background-color: rgb(64, 201, 77);
