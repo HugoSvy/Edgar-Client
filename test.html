@@ -1,67 +1,133 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recherche de Plante</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identification de Plante</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+      margin: 0;
+    }
+    .container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    #preview {
+      width: 300px;
+      height: 300px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      object-fit: cover;
+      display: none;
+    }
+    #uploadBtn, #cameraBtn {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #uploadBtn:hover, #cameraBtn:hover {
+      background-color: #45a049;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f4f4f4;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Recherche de Plante</h1>
-    <input type="text" id="plantName" placeholder="Nom de la plante">
-    <button onclick="searchPlant()">Rechercher</button>
-    <div id="results"></div>
 
-    <script>
-        async function searchPlant() {
-            const query = document.getElementById("plantName").value;
-            if (!query) {
-                alert("Veuillez entrer un nom de plante.");
-                return;
-            }
+<div class="container">
+  <h1>Identification de Plante</h1>
+  <button id="cameraBtn">Prendre une Photo avec la Caméra</button>
+  <br><br>
+  <video id="video" width="300" height="300" autoplay></video>
+  <br>
+  <canvas id="canvas" style="display: none;"></canvas>
+  <br>
+  <button id="captureBtn">Capturer l'Image</button>
+  <br><br>
+  <img id="preview" src="" alt="Aperçu de l'image">
+  <div class="result" id="result">Résultat de l'API ici...</div>
+</div>
 
-            const apiKey = "2crFJXLwS3RXr0ULvGOpRNwI6Dl1i90zlRIQvcjsu0vGxFac4A";
-            const searchUrl = `https://plant.id/api/v3/kb/plants/name_search?q=${encodeURIComponent(query)}`;
-            const headers = {
-                "Api-Key": apiKey,
-                "Content-Type": "application/json"
-            };
+<script>
+  const video = document.getElementById('video');
+  const captureBtn = document.getElementById('captureBtn');
+  const preview = document.getElementById('preview');
+  const resultDiv = document.getElementById('result');
+  const canvas = document.getElementById('canvas');
+  
+  // Démarre la caméra
+  document.getElementById('cameraBtn').addEventListener('click', function () {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        video.srcObject = stream;
+        video.style.display = 'block';
+        captureBtn.style.display = 'block';
+      })
+      .catch(error => {
+        console.error('Erreur d\'accès à la caméra', error);
+        resultDiv.textContent = 'Impossible d\'accéder à la caméra.';
+      });
+  });
 
-            try {
-                const searchResponse = await fetch(searchUrl, { method: "GET", headers });
-                const searchData = await searchResponse.json();
-                
-                const resultsDiv = document.getElementById("results");
-                resultsDiv.innerHTML = ""; // Nettoyage des résultats précédents
-                
-                if (!searchData.entities || searchData.entities.length === 0) {
-                    resultsDiv.innerHTML = "<p>Aucune plante trouvée.</p>";
-                    return;
-                }
+  // Capture l'image de la caméra et l'affiche
+  captureBtn.addEventListener('click', function () {
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+    
+    const base64Image = canvas.toDataURL('image/png');
+    preview.src = base64Image;
+    preview.style.display = 'block';
+    
+    // Appeler l'API avec l'image en base64
+    callAPI(base64Image);
+  });
 
-                // Récupération des access-tokens
-                const plantDetailsPromises = searchData.entities.map(async entity => {
-                    const detailsUrl = `https://plant.id/api/v3/kb/plants/${entity.access_token}?details=image&language=en`;
-                    const detailsResponse = await fetch(detailsUrl, { method: "GET", headers });
-                    return detailsResponse.json();
-                });
+  // Fonction pour appeler l'API avec l'image en base64
+  function callAPI(base64Image) {
+    const data = {
+      "images": [base64Image],
+      "latitude": 49.207,
+      "longitude": 16.608,
+      "similar_images": true
+    };
 
-                const plantDetails = await Promise.all(plantDetailsPromises);
+    fetch('https://plant.id/api/v3/identification', {
+      method: 'POST',
+      headers: {
+        'Api-Key': '93VDvGo876GivfyKGifp2xu1eq768IQAmn1m5rw69zlAEGny2s',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data); // Affiche les résultats dans la console pour vérification
+      resultDiv.textContent = JSON.stringify(data, null, 2);
+    })
+    .catch(error => {
+      console.error('Erreur API:', error);
+      resultDiv.textContent = 'Une erreur est survenue, veuillez réessayer.';
+    });
+  }
+</script>
 
-                // Affichage des résultats
-                plantDetails.forEach(plant => {
-                    const plantDiv = document.createElement("div");
-                    plantDiv.innerHTML = `
-                        <h2>${plant.name}</h2>
-                        <img src="${plant.image?.value || 'https://via.placeholder.com/150'}" alt="${plant.name}" width="200">
-                    `;
-                    resultsDiv.appendChild(plantDiv);
-                });
-
-            } catch (error) {
-                console.error("Erreur:", error);
-                document.getElementById("results").innerHTML = "<p>Une erreur s'est produite.</p>";
-            }
-        }
-    </script>
 </body>
 </html>

@@ -1,86 +1,317 @@
 {
-    "entities": [
-        {
-            "matched_in": "Aloe vera",
-            "matched_in_type": "entity_name",
-            "access_token": "BzNUNht6d0dSZy1LQHFxQV1oX292Qlxkf05eaWVWZVQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Aloe vera"
+    "access_token": "gFeg7iw8dJI1rhW",
+    "model_version": "plant_id:4.3.1",
+    "custom_id": null,
+    "input": {
+        "latitude": 49.207,
+        "longitude": 16.608,
+        "similar_images": true,
+        "images": [
+            "https://plant.id/media/imgs/15f45b392f0040908f464f9c7fe6ad5b.jpg"
+        ],
+        "datetime": "2025-01-30T16:02:19.992361+00:00"
+    },
+    "result": {
+        "classification": {
+            "suggestions": [
+                {
+                    "id": "2c5be619f65be275",
+                    "name": "Chaenotheca",
+                    "probability": 0.049,
+                    "similar_images": [
+                        {
+                            "id": "bf3867c401cb0f3978d1c9ba33b3d66c94c62085",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/bf3/867c401cb0f3978d1c9ba33b3d66c94c62085.jpg",
+                            "license_name": "CC0",
+                            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                            "citation": "Krister Wahlström",
+                            "similarity": 0.426,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/bf3/867c401cb0f3978d1c9ba33b3d66c94c62085.small.jpg"
+                        },
+                        {
+                            "id": "f8c35b01e6c8d6833d079448b7328e981abc017e",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f8c/35b01e6c8d6833d079448b7328e981abc017e.jpg",
+                            "license_name": "CC0",
+                            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+                            "citation": "Krister Wahlström",
+                            "similarity": 0.357,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f8c/35b01e6c8d6833d079448b7328e981abc017e.small.jpg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "2c5be619f65be275"
+                    }
+                },
+                {
+                    "id": "386ba8125f98e8ba",
+                    "name": "Cornus mas",
+                    "probability": 0.0299,
+                    "similar_images": [
+                        {
+                            "id": "e91254e168dc2881afecaa769205f9b1e963a331",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/e91/254e168dc2881afecaa769205f9b1e963a331.jpeg",
+                            "license_name": "CC BY-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "citation": "antoine abarnou",
+                            "similarity": 0.094,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/e91/254e168dc2881afecaa769205f9b1e963a331.small.jpeg"
+                        },
+                        {
+                            "id": "fa893f8f823b6bfdea8674661ce4c89854ae4a3d",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/fa8/93f8f823b6bfdea8674661ce4c89854ae4a3d.jpeg",
+                            "license_name": "CC BY-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "citation": "vdv6886",
+                            "similarity": 0.048,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/fa8/93f8f823b6bfdea8674661ce4c89854ae4a3d.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "386ba8125f98e8ba"
+                    }
+                },
+                {
+                    "id": "067cda078ebfbcd0",
+                    "name": "Viscum album",
+                    "probability": 0.0267,
+                    "similar_images": [
+                        {
+                            "id": "7c12beccc6f2cc65c816b678c3a9422d3651bc22",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/7c1/2beccc6f2cc65c816b678c3a9422d3651bc22.jpg",
+                            "license_name": "CC BY 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                            "citation": "Vasyliuk Oleksij",
+                            "similarity": 0.54,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/7c1/2beccc6f2cc65c816b678c3a9422d3651bc22.small.jpg"
+                        },
+                        {
+                            "id": "5b0cd8ad0c358e20fabdf59004423abb7e6679a0",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/5b0/cd8ad0c358e20fabdf59004423abb7e6679a0.jpg",
+                            "license_name": "CC BY 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                            "citation": "Vasyliuk Oleksij",
+                            "similarity": 0.295,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/5b0/cd8ad0c358e20fabdf59004423abb7e6679a0.small.jpg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "067cda078ebfbcd0"
+                    }
+                },
+                {
+                    "id": "2b47d70875ec9f19",
+                    "name": "Capsella bursa-pastoris",
+                    "probability": 0.0165,
+                    "similar_images": [
+                        {
+                            "id": "4c10541f2f7b97a56c12f75c537eba884d641dcd",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/4c1/0541f2f7b97a56c12f75c537eba884d641dcd.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.096,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/4c1/0541f2f7b97a56c12f75c537eba884d641dcd.small.jpeg"
+                        },
+                        {
+                            "id": "f1b4b0312ca3500d7ce53ae8abed700955c1284d",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f1b/4b0312ca3500d7ce53ae8abed700955c1284d.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.046,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f1b/4b0312ca3500d7ce53ae8abed700955c1284d.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "2b47d70875ec9f19"
+                    }
+                },
+                {
+                    "id": "fb6c053c79fc2c6e",
+                    "name": "Tricholoma terreum",
+                    "probability": 0.0149,
+                    "similar_images": [
+                        {
+                            "id": "c604faea4918c17f70b14162b8c755d8876f953f",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/c60/4faea4918c17f70b14162b8c755d8876f953f.jpeg",
+                            "license_name": "CC BY 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                            "citation": "Анна Митрошенкова",
+                            "similarity": 0.01,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/c60/4faea4918c17f70b14162b8c755d8876f953f.small.jpeg"
+                        },
+                        {
+                            "id": "2aee09c063deff6510b85ac645343f0e7e4d2614",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/2ae/e09c063deff6510b85ac645343f0e7e4d2614.jpg",
+                            "license_name": "CC BY 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                            "citation": "LJ Moore-McClelland",
+                            "similarity": 0.002,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/2ae/e09c063deff6510b85ac645343f0e7e4d2614.small.jpg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "fb6c053c79fc2c6e"
+                    }
+                },
+                {
+                    "id": "759a66523f248c10",
+                    "name": "Pleurotus ostreatus",
+                    "probability": 0.0141,
+                    "similar_images": [
+                        {
+                            "id": "cca92ff6e3bf87dc9c86fca650ca5b7c709cf111",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/cca/92ff6e3bf87dc9c86fca650ca5b7c709cf111.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.088,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/cca/92ff6e3bf87dc9c86fca650ca5b7c709cf111.small.jpeg"
+                        },
+                        {
+                            "id": "6708e621bf88ad0fac019d53214725c00da80ff9",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/670/8e621bf88ad0fac019d53214725c00da80ff9.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.073,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/670/8e621bf88ad0fac019d53214725c00da80ff9.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "759a66523f248c10"
+                    }
+                },
+                {
+                    "id": "8ef1a1381ab42caf",
+                    "name": "Picea abies",
+                    "probability": 0.0137,
+                    "similar_images": [
+                        {
+                            "id": "3a0a24d03a3b4ba430dc3110ca4b102f3f232bd8",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/3a0/a24d03a3b4ba430dc3110ca4b102f3f232bd8.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.095,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/3a0/a24d03a3b4ba430dc3110ca4b102f3f232bd8.small.jpeg"
+                        },
+                        {
+                            "id": "3b7a3fc752fd88f513bc5d3adafedbcac0a94957",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/3b7/a3fc752fd88f513bc5d3adafedbcac0a94957.jpg",
+                            "license_name": "CC BY 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+                            "citation": "Pavel Kacl",
+                            "similarity": 0.094,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/3b7/a3fc752fd88f513bc5d3adafedbcac0a94957.small.jpg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "8ef1a1381ab42caf"
+                    }
+                },
+                {
+                    "id": "29c7639a23c63596",
+                    "name": "Robinia pseudoacacia",
+                    "probability": 0.0116,
+                    "similar_images": [
+                        {
+                            "id": "f6620b5be049246adb0a317269321f4cd35fa03c",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f66/20b5be049246adb0a317269321f4cd35fa03c.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.123,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/f66/20b5be049246adb0a317269321f4cd35fa03c.small.jpeg"
+                        },
+                        {
+                            "id": "4c461e716dcaad186ee0d5837caef3261c85a925",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/4c4/61e716dcaad186ee0d5837caef3261c85a925.jpeg",
+                            "license_name": "CC BY-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                            "citation": "Kai Best",
+                            "similarity": 0.11,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/4c4/61e716dcaad186ee0d5837caef3261c85a925.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "29c7639a23c63596"
+                    }
+                },
+                {
+                    "id": "583c577c9bc2096c",
+                    "name": "Vinca",
+                    "probability": 0.0115,
+                    "similar_images": [
+                        {
+                            "id": "15f9d4689f550a49b5d383fa867505884900bf3c",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/15f/9d4689f550a49b5d383fa867505884900bf3c.jpeg",
+                            "similarity": 0.12,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/15f/9d4689f550a49b5d383fa867505884900bf3c.small.jpeg"
+                        },
+                        {
+                            "id": "cdc2aea1725b9223b8100e94c754033eb240cc4e",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/cdc/2aea1725b9223b8100e94c754033eb240cc4e.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.086,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/cdc/2aea1725b9223b8100e94c754033eb240cc4e.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "583c577c9bc2096c"
+                    }
+                },
+                {
+                    "id": "185e4b3ba35d5c9a",
+                    "name": "Holcus lanatus",
+                    "probability": 0.0106,
+                    "similar_images": [
+                        {
+                            "id": "e301872cb87a6d11785909b9dfbd56709d5c55ee",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/e30/1872cb87a6d11785909b9dfbd56709d5c55ee.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.14,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/e30/1872cb87a6d11785909b9dfbd56709d5c55ee.small.jpeg"
+                        },
+                        {
+                            "id": "0f6f75b2433cbaef4cb20f657cd33e84f348296f",
+                            "url": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/0f6/f75b2433cbaef4cb20f657cd33e84f348296f.jpeg",
+                            "license_name": "CC BY-NC-SA 4.0",
+                            "license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+                            "citation": "FlowerChecker s.r.o.",
+                            "similarity": 0.096,
+                            "url_small": "https://plant-id.ams3.cdn.digitaloceanspaces.com/similar_images/4/0f6/f75b2433cbaef4cb20f657cd33e84f348296f.small.jpeg"
+                        }
+                    ],
+                    "details": {
+                        "language": "en",
+                        "entity_id": "185e4b3ba35d5c9a"
+                    }
+                }
+            ]
         },
-        {
-            "matched_in": "Anthurium andraeanum",
-            "matched_in_type": "entity_name",
-            "access_token": "BTMFNhx6ckdSZ3NLRHEgQQpoC296QlRkKE5RaWJWNlQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Anthurium andraeanum"
-        },
-        {
-            "matched_in": "Alocasia",
-            "matched_in_type": "entity_name",
-            "access_token": "ADMANkN6fkdSZ3xLSHEiQVpoC29zQlxkK05faWdWZlQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Alocasia"
-        },
-        {
-            "matched_in": "Aglaonema commutatum",
-            "matched_in_type": "entity_name",
-            "access_token": "BzNTNk16IkdSZ3JLQXEkQVFoCW93QgJkfE5faTBWMFQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Aglaonema commutatum"
-        },
-        {
-            "matched_in": "Aglaonema modestum",
-            "matched_in_type": "entity_name",
-            "access_token": "VzMGNkx6JUcCZy1LF3F5QQpoDW8gQlJkLE5baWRWY1Q-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Aglaonema modestum"
-        },
-        {
-            "matched_in": "Aglaonema",
-            "matched_in_type": "entity_name",
-            "access_token": "CzMPNhx6dUdQZ3lLQnF1QVpoCW93QlVkek4MaTdWZVQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Aglaonema"
-        },
-        {
-            "matched_in": "Alocasia \u00d7 mortfontanensis",
-            "matched_in_type": "entity_name",
-            "access_token": "AjMONk96f0cFZ3lLSHFxQVloVm9wQgFkek5ZaWVWYlQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Alocasia \u00d7 mortfontanensis"
-        },
-        {
-            "matched_in": "Adenium obesum",
-            "matched_in_type": "entity_name",
-            "access_token": "UTNVNhl6dUdVZy9LFHF0QVxoDG92QlRke05caWJWMVQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Adenium obesum"
-        },
-        {
-            "matched_in": "Acer rubrum",
-            "matched_in_type": "entity_name",
-            "access_token": "CzNSNk96JEdUZ35LQnF0QQpoX296Ql1kLE5caWFWN1Q-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Acer rubrum"
-        },
-        {
-            "matched_in": "Aeonium arboreum",
-            "matched_in_type": "entity_name",
-            "access_token": "VzNVNkh6I0cDZ3JLQnEnQQ5oX29yQlVkeU4IaWRWZFQ-",
-            "match_position": 0,
-            "match_length": 1,
-            "entity_name": "Aeonium arboreum"
+        "is_plant": {
+            "probability": 0.00072667864,
+            "threshold": 0.5,
+            "binary": false
         }
-    ],
-    "entities_trimmed": true,
-    "limit": 10
+    },
+    "status": "COMPLETED",
+    "sla_compliant_client": true,
+    "sla_compliant_system": true,
+    "created": 1738252939.992361,
+    "completed": 1738252940.221023
 }
