@@ -22,13 +22,16 @@ section {
   background-color: rgb(255 255 255 / 0.9);
   max-width: 420px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  padding: 20px; /* Ajout d'un padding pour espacer le contenu */
-  margin: 10px auto; /* Pour centrer la section */
+  padding: 20px;
+  /* Ajout d'un padding pour espacer le contenu */
+  margin: 10px auto;
+  /* Pour centrer la section */
 }
 
 /* Styles des formulaires */
 form {
-  margin-bottom: 20px; /* Espacement entre les formulaires */
+  margin-bottom: 20px;
+  /* Espacement entre les formulaires */
 }
 
 label {
@@ -50,7 +53,7 @@ button2 {
   margin-top: 25px;
   padding: 10px;
   width: 100%;
-  background-color: rgba(141, 198, 63, 1);
+  background-color: #34b340;
   color: white;
   border: none;
   border-radius: 4px;
@@ -58,10 +61,11 @@ button2 {
 }
 
 button2:hover {
-  background-color: rgba(141, 198, 63, 1);
+  background-color: #34b340;
 }
 
-#etatGlobalResult, #lastRechercheResult {
+#etatGlobalResult,
+#lastRechercheResult {
   margin-top: 15px;
   padding: 10px;
   font-size: 0.9em;
@@ -70,20 +74,22 @@ button2:hover {
 /* Styles spécifiques à la nav */
 header {
   position: relative;
-  z-index: 50; /* Pour s'assurer que la nav est toujours au-dessus des autres éléments */
+  z-index: 50;
+  /* Pour s'assurer que la nav est toujours au-dessus des autres éléments */
 }
 
 nav {
   background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Légère ombre pour la nav */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  /* Légère ombre pour la nav */
 }
 
 nav a {
-  color: #333; /* Couleur du texte des liens */
+  color: #333;
+  /* Couleur du texte des liens */
 }
 
 nav a:hover {
-  color: #4caf50; /* Changement de couleur au survol */
+  color: #34b340;
+  /* Changement de couleur au survol */
 }
-
-/* Évitez de cibler les classes ou les IDs de la nav avec des règles générales */

@@ -29,15 +29,16 @@
 
 <body class="font-poppins">
 
-    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav class="desktop-nav container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="./" class="text-2xl font-bold text-edgar-green">Edgar</a>
         <div class="space-x-6">
             <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pots</a>
             <a href="./config.html" class="hover:text-edgar-green transition-colors">Configurations</a>
             <a href="./docs.html" class="hover:text-edgar-green transition-colors">Documents</a>
-            <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
+            <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identification</a>
         </div>
     </nav>
+
 
     <section class="pt-32 pb-20 bg-edgar-gray">
         <div class="container mx-auto px-4">
@@ -47,16 +48,40 @@
                         <b>Prenez soin de vos plantes </b><span class="text-edgar-green"><b>intelligemment</b></span>
                     </h1>
                     <p class="text-xl text-gray-600 mb-8">
-                        Edgar est votre assistant jardinier connecté qui surveille vos plantes 24/7 <br>
-                        et vous aide à les faire prospérer.
+                        Edgar est votre assistant jardinier connecté qui surveille vos plantes 24/7 et vous aide à les
+                        faire prospérer.
                     </p>
-                    <form class="flex gap-4 max-w-md"> <input type="email" placeholder="Votre email"
-                            class="flex-1 px-4 py-3 rounded-lg border focus:outline-none focus:ring-2 focus:ring-edgar-green">
-                        <button type="submit"
-                            class="bg-edgar-green text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors">
-                            Je m'inscris
+                    <div class="flex flex-col items-center gap-4">
+                        <!-- Bouton d'inscription -->
+                        <a href="./pot.html" class="start-button bg-edgar-orange text-white px-6 py-3 rounded-lg hover:bg-edgar-green/90 transition-colors 
+        text-center w-48 flex items-center justify-center gap-2">
+                            <span>Commencer</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-arrow-right h-5 w-5 transition-transform group-hover:translate-x-1">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+
+
+
+                        <!-- Bouton de téléchargement -->
+                        <button class="download-button" id="installPWA">
+                            Télécharger l'application
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-download ml-2 h-4 w-4 transition-transform group-hover:translate-y-1">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" x2="12" y1="15" y2="3"></line>
+                            </svg>
                         </button>
-                    </form>
+
+                    </div>
+
                 </div>
                 <div data-aos="fade-left"> <img src="./img/pot.png" alt="Edgar - Pot de fleur connecté"
                         class="w-1/4 max-w-xs mx-auto h-16 object-contain"> </div>
@@ -114,7 +139,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up"><b>L'Application Edgar</b></h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right"> <img src="./img/logo.png" alt="Application Edgar"
+                <div data-aos="fade-right"> <img src="./img/logoappli512_2.png" alt="Application Edgar"
                         class="w-full max-w-md mx-auto"> </div>
                 <div data-aos="fade-left">
                     <div class="space-y-6">
@@ -214,6 +239,26 @@
     </footer>
     <script src="./test.js"></script>
     <script src="./scripts/app.js"></script>
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById("installPWA");
+  
+        window.addEventListener("beforeinstallprompt", (event) => {
+          event.preventDefault();
+          deferredPrompt = event;
+          installButton.style.display = "inline-flex";
+        });
+  
+        installButton.addEventListener("click", async () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            const { outcome } = await deferredPrompt.userChoice;
+            console.log(`Installation outcome: ${outcome}`);
+            deferredPrompt = null;
+            installButton.style.display = "none";
+          }
+        });
+      </script>
 
 </body>
 
