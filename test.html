@@ -1,192 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Edgar - Test</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: "Poppins", sans-serif;
-      background-color: #f9f9f9;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      flex-direction: column;
-    }
-
-    .card {
-      margin-left: 40px;
-      margin-right: 40px;
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      width: 400px;
-      max-width: 90%;
-    }
-
-    h1 {
-      text-align: center;
-    }
-
-    h2 {
-      text-align: left;
-    }
-
-    .switch-container {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-
-    .switch {
-      position: relative;
-      display: inline-block;
-      width: 40px;
-      height: 20px;
-    }
-
-    .switch input {
-      opacity: 0;
-      width: 0;
-      height: 0;
-    }
-
-    .slider {
-      position: absolute;
-      cursor: pointer;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: #ccc;
-      border-radius: 20px;
-      transition: .4s;
-    }
-
-    .slider:before {
-      position: absolute;
-      content: "";
-      height: 14px;
-      width: 14px;
-      left: 3px;
-      bottom: 3px;
-      background-color: white;
-      border-radius: 50%;
-      transition: .4s;
-    }
-
-    input:checked+.slider {
-      background-color: #245e09;
-    }
-
-    input:checked+.slider:before {
-      transform: translateX(20px);
-    }
-
-    .slider-container {
-      margin-bottom: 15px;
-    }
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    input[type=range] {
-      width: 100%;
-    }
-
-    button {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-      border: none;
-      background-color: #245e09;
-      color: white;
-      border-radius: 8px;
-      cursor: pointer;
-      align-self: flex-start;
-    }
-
-    button:hover {
-      background-color: #207736;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche de Plante</title>
 </head>
-
 <body>
-  <div class="card">
-    <h1>Configuration</h1>
-    <h2>Paramètres</h2>
-    <div class="switch-container">
-      <label class="switch">
-        <input type="checkbox" id="recommendedSwitch" onclick="toggleRecommendedValues()">
-        <span class="slider"></span>
-      </label>
-      <span>Valeurs recommandées</span>
-    </div>
-    <div class="slider-container">
-      <label>Température Min: <span id="tempMinValue">15</span>°C</label>
-      <input type="range" id="tempMin" min="10" max="30" value="15" oninput="updateValue('tempMin')">
-    </div>
-    <div class="slider-container">
-      <label>Température Max: <span id="tempMaxValue">25</span>°C</label>
-      <input type="range" id="tempMax" min="10" max="30" value="25" oninput="updateValue('tempMax')">
-    </div>
-    <div class="slider-container">
-      <label>Durée éclairage: <span id="lightDurationValue">8</span>h</label>
-      <input type="range" id="lightDuration" min="1" max="24" value="8" oninput="updateValue('lightDuration')">
-    </div>
-    <div class="slider-container">
-      <label>Fréquence arrosage: <span id="wateringFreqValue">3</span> jours</label>
-      <input type="range" id="wateringFreq" min="1" max="7" value="3" oninput="updateValue('wateringFreq')">
-    </div>
-    <div class="slider-container">
-      <label>Temps d'arrosage: <span id="wateringTimeValue">5</span> min</label>
-      <input type="range" id="wateringTime" min="1" max="30" value="5" oninput="updateValue('wateringTime')">
-    </div>
-    <button onclick="saveSettings()">Sauvegarder</button>
-  </div>
-  <script>
-    const recommendedValues = {
-      tempMin: 18,
-      tempMax: 24,
-      lightDuration: 10,
-      wateringFreq: 2,
-      wateringTime: 7
-    };
+    <h1>Recherche de Plante</h1>
+    <input type="text" id="plantName" placeholder="Nom de la plante">
+    <button onclick="searchPlant()">Rechercher</button>
+    <div id="results"></div>
 
-    function updateValue(id) {
-      document.getElementById(id + 'Value').innerText = document.getElementById(id).value;
-    }
+    <script>
+        async function searchPlant() {
+            const query = document.getElementById("plantName").value;
+            if (!query) {
+                alert("Veuillez entrer un nom de plante.");
+                return;
+            }
 
-    function toggleRecommendedValues() {
-      const isChecked = document.getElementById("recommendedSwitch").checked;
-      for (let key in recommendedValues) {
-        let slider = document.getElementById(key);
-        if (isChecked) {
-          slider.value = recommendedValues[key];
-          slider.disabled = true;
-          document.getElementById(key + 'Value').innerText = recommendedValues[key];
-        } else {
-          slider.disabled = false;
+            const apiKey = "2crFJXLwS3RXr0ULvGOpRNwI6Dl1i90zlRIQvcjsu0vGxFac4A";
+            const searchUrl = `https://plant.id/api/v3/kb/plants/name_search?q=${encodeURIComponent(query)}`;
+            const headers = {
+                "Api-Key": apiKey,
+                "Content-Type": "application/json"
+            };
+
+            try {
+                const searchResponse = await fetch(searchUrl, { method: "GET", headers });
+                const searchData = await searchResponse.json();
+                
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = ""; // Nettoyage des résultats précédents
+                
+                if (!searchData.entities || searchData.entities.length === 0) {
+                    resultsDiv.innerHTML = "<p>Aucune plante trouvée.</p>";
+                    return;
+                }
+
+                // Récupération des access-tokens
+                const plantDetailsPromises = searchData.entities.map(async entity => {
+                    const detailsUrl = `https://plant.id/api/v3/kb/plants/${entity.access_token}?details=image&language=en`;
+                    const detailsResponse = await fetch(detailsUrl, { method: "GET", headers });
+                    return detailsResponse.json();
+                });
+
+                const plantDetails = await Promise.all(plantDetailsPromises);
+
+                // Affichage des résultats
+                plantDetails.forEach(plant => {
+                    const plantDiv = document.createElement("div");
+                    plantDiv.innerHTML = `
+                        <h2>${plant.name}</h2>
+                        <img src="${plant.image?.value || 'https://via.placeholder.com/150'}" alt="${plant.name}" width="200">
+                    `;
+                    resultsDiv.appendChild(plantDiv);
+                });
+
+            } catch (error) {
+                console.error("Erreur:", error);
+                document.getElementById("results").innerHTML = "<p>Une erreur s'est produite.</p>";
+            }
         }
-      }
-    }
-
-    function saveSettings() {
-      alert("Paramètres sauvegardés !");
-    }
-  </script>
+    </script>
 </body>
-
 </html>
