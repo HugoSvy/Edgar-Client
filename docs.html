@@ -227,6 +227,12 @@
           <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
         </div>
       </nav>
+
+      <h1>Recherche de Plante</h1>
+      <input type="text" id="plantName" placeholder="Nom de la plante">
+      <button onclick="searchPlant()">Rechercher</button>
+      <div class="card"><div id="results"></div></div>
+
     <div class="mobile-nav">
         <a href="./pot.html">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -273,5 +279,58 @@
           Scan
         </a>
       </div> 
+      <script>
+        async function searchPlant() {
+            const query = document.getElementById("plantName").value;
+            if (!query) {
+                alert("Veuillez entrer un nom de plante.");
+                return;
+            }
+
+            const apiKey = "Hs9lgQuBasPbRhPgBnGwCdn2OP9L1UMBUt0wQCfgVXwaq9URik";
+            const searchUrl = `https://plant.id/api/v3/kb/plants/name_search?q=${encodeURIComponent(query)}`;
+            const headers = {
+                "Api-Key": apiKey,
+                "Content-Type": "application/json"
+            };
+
+            try {
+                const searchResponse = await fetch(searchUrl, { method: "GET", headers });
+                const searchData = await searchResponse.json();
+                
+                const resultsDiv = document.getElementById("results");
+                resultsDiv.innerHTML = ""; // Nettoyage des résultats précédents
+                
+                if (!searchData.entities || searchData.entities.length === 0) {
+                    resultsDiv.innerHTML = "<p>Aucune plante trouvée.</p>";
+                    return;
+                }
+
+                // Récupération des access-tokens
+                const plantDetailsPromises = searchData.entities.map(async entity => {
+                    const detailsUrl = `https://plant.id/api/v3/kb/plants/${entity.access_token}?details=image&language=en`;
+                    const detailsResponse = await fetch(detailsUrl, { method: "GET", headers });
+                    return detailsResponse.json();
+                });
+
+                const plantDetails = await Promise.all(plantDetailsPromises);
+
+                // Affichage des résultats
+                plantDetails.forEach(plant => {
+                    const plantDiv = document.createElement("div");
+                    plantDiv.innerHTML = `
+                        <img src="${plant.image?.value || 'https://via.placeholder.com/150'}" alt="${plant.name}" width="200">
+                        <h2>${plant.name}</h2>
+                        </br>
+                    `;
+                    resultsDiv.appendChild(plantDiv);
+                });
+
+            } catch (error) {
+                console.error("Erreur:", error);
+                document.getElementById("results").innerHTML = "<p>Une erreur s'est produite.</p>";
+            }
+        }
+    </script>
 </body>
 </html>
