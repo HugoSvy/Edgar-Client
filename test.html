@@ -52,16 +52,18 @@
 
 <div class="container">
   <h1>Identification de Plante</h1>
-  <button id="cameraBtn">Prendre une Photo avec la Caméra</button>
+  <input type="file" id="fileInput" accept="image/*" style="display: none;">
+  <button id="uploadBtn">Choisir une Photo</button>
+  <button id="cameraBtn">Prendre une Photo</button>
   <br><br>
   <video id="video" width="300" height="300" autoplay></video>
   <br>
   <canvas id="canvas" style="display: none;"></canvas>
   <br>
-  <button id="captureBtn">Capturer l'Image</button>
+  <button id="captureBtn" style="display: none;">Capturer l'Image</button>
   <br><br>
   <img id="preview" src="" alt="Aperçu de l'image">
-  <div class="result" id="result">Résultat de l'API ici...</div>
+  <div class="result" id="result"></div>
 </div>
 
 <script>
@@ -70,8 +72,8 @@
   const preview = document.getElementById('preview');
   const resultDiv = document.getElementById('result');
   const canvas = document.getElementById('canvas');
-  
-  // Démarre la caméra
+  const fileInput = document.getElementById('fileInput');
+
   document.getElementById('cameraBtn').addEventListener('click', function () {
     navigator.mediaDevices.getUserMedia({ video: true })
       .then(stream => {
@@ -85,7 +87,6 @@
       });
   });
 
-  // Capture l'image de la caméra et l'affiche
   captureBtn.addEventListener('click', function () {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
@@ -96,11 +97,26 @@
     preview.src = base64Image;
     preview.style.display = 'block';
     
-    // Appeler l'API avec l'image en base64
     callAPI(base64Image);
   });
 
-  // Fonction pour appeler l'API avec l'image en base64
+  document.getElementById('uploadBtn').addEventListener('click', function () {
+    fileInput.click();
+  });
+
+  fileInput.addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        preview.src = e.target.result;
+        preview.style.display = 'block';
+        callAPI(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
   function callAPI(base64Image) {
     const data = {
       "images": [base64Image],
@@ -119,8 +135,23 @@
     })
     .then(response => response.json())
     .then(data => {
-      console.log(data); // Affiche les résultats dans la console pour vérification
-      resultDiv.textContent = JSON.stringify(data, null, 2);
+      console.log(data);
+      if (data.result.classification.suggestions && data.result.classification.suggestions.length > 0) {
+        const plant = data.result.classification.suggestions[0];
+        const plantName = plant.name;
+        const probability = (plant.probability * 100).toFixed(2) + '%';
+        const imageUrl = plant.similar_images.length > 0 ? plant.similar_images[0].url : '';
+        
+        let resultHTML = `<strong>Plante identifiée :</strong> ${plantName}<br>`;
+        resultHTML += `<strong>Probabilité :</strong> ${probability}<br>`;
+        if (imageUrl) {
+          resultHTML += `<img src="${imageUrl}" width="100">`;
+        }
+        
+        resultDiv.innerHTML = resultHTML;
+      } else {
+        resultDiv.textContent = 'Aucune correspondance trouvée.';
+      }
     })
     .catch(error => {
       console.error('Erreur API:', error);
