@@ -352,18 +352,23 @@
     const canvas = document.getElementById('canvas');
     const fileInput = document.getElementById('fileInput');
 
-    document.getElementById('cameraBtn').addEventListener('click', function () {
-      navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-          video.srcObject = stream;
-          video.style.display = 'block';
-          captureBtn.style.display = 'block';
-        })
-        .catch(error => {
-          console.error('Erreur d\'accès à la caméra', error);
-          resultDiv.textContent = 'Impossible d\'accéder à la caméra.';
-        });
+    document.getElementById("cameraBtn").addEventListener("click", async () => {
+      const constraints = {
+        video: {
+          facingMode: { ideal: "environment" } // Demande explicitement la caméra arrière
+        }
+      };
+
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia(constraints);
+        const videoElement = document.getElementById("video");
+        videoElement.srcObject = stream;
+      } catch (error) {
+        console.error("Erreur d'accès à la caméra :", error);
+        alert("Impossible d'accéder à la caméra arrière. Essayez d'autoriser l'accès ou de changer de navigateur.");
+      }
     });
+
 
     captureBtn.addEventListener('click', function () {
       canvas.width = video.videoWidth;
