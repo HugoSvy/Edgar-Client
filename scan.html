@@ -363,12 +363,13 @@
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         const videoElement = document.getElementById("video");
         videoElement.srcObject = stream;
+        video.style.display = 'block';
+        captureBtn.style.display = 'block';
       } catch (error) {
         console.error("Erreur d'accès à la caméra :", error);
         alert("Impossible d'accéder à la caméra arrière. Essayez d'autoriser l'accès ou de changer de navigateur.");
       }
     });
-
 
     captureBtn.addEventListener('click', function () {
       canvas.width = video.videoWidth;
