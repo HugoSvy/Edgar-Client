@@ -21,8 +21,10 @@
     }
 
     .card {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 20px;
       background-color: white;
       border-radius: 16px;
@@ -30,12 +32,15 @@
       padding: 20px;
       width: 700px;
       max-width: 100%;
+      margin: 0 auto; /* Centre horizontalement */
     }
+
 
     .card img {
       width: 100%;
       border-radius: 8px;
       background-color: #eaeaea;
+      max-width: 300px;
     }
 
     .title-container {
@@ -273,7 +278,7 @@
       <a href="./pot.html" class="hover:text-edgar-green transition-colors">Pots</a>
       <a href="./config.html" class="hover:text-edgar-green transition-colors">Configurations</a>
       <a href="./docs.html" class="hover:text-edgar-green transition-colors">Documents</a>
-      <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identifiaction</a>
+      <a href="./scan.html" class="hover:text-edgar-green transition-colors">Identification</a>
     </div>
   </nav>
   <div class="card">
@@ -297,20 +302,20 @@
           src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/462/46200b659607cd7d6cf766db0a954391ac8d775d.jpg"
           alt="" width="200">
         <h2>Aloe vera</h2>
-        </br>
+        <br>
 
         <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/fa1/fa1c42c2aac6aebeff234f99302c71862af60a85.jpg" alt="" width="200">
         <h2>Anthurium andraeanum</h2>
-        </br>
+        <br>
         <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/6f8/6f861c217fbef21c77b170fe23a7c82cfedcaebd.jpg" alt="" width="200">
         <h2>Alocasia</h2>
-        </br>
+        <br>
         <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/322/322e5bf8a4efce6855876787251f0e3b81c83955.jpg" alt="" width="200">
         <h2>Aglaonema commutatum</h2>
-        </br>
+        <br>
         <img src="https://plant-id.ams3.cdn.digitaloceanspaces.com/knowledge_base/wikidata/431/4310476359bea0eca0db09820cf7b37be00aafbc.jpg" alt="" width="200">
         <h2>Aglaonema modestum</h2>
-        </br>
+        <br>
       </div>
     </br>
   </br>
